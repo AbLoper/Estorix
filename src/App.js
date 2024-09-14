@@ -2,7 +2,7 @@ import './styles/cssModules/App.module.css'
 
 function App() {
   return (
-    <div>App</div>
+    <h1>Estorix Web Application</h1>
   )
 }
 export default App
