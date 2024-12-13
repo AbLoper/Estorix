@@ -1,0 +1,18 @@
+/* Mobiles */
+@media (max-width: 599px) {}
+
+/*  */
+@media (min-width: 600px) and (max-width: 767px) {}
+
+/* Tablets */
+@media (min-width: 768px) and (max-width: 1023px) {}
+
+/*  */
+@media (min-width: 1024px) and (max-width: 1279px) {}
+
+/* Latptops */
+@media (min-width: 1280px) {}
+
+/* الشاشات عالية الدقة */
+@media (-webkit-min-device-pixel-ratio: 2),
+(min-resolution: 192dpi) {}
