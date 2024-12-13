@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import StarBorderIcon from '@mui/icons-material/StarBorder';
-import FavoriteBorderIcon from '@mui/icons-material/FavoriteBorder';
+import ThumbUpOffAltIcon from '@mui/icons-material/ThumbUpOffAlt';
 import Styles from '../styles/products.module.css';
 
 import {
@@ -14,7 +14,6 @@ import {
     MDBCardBody,
     MDBCardTitle,
     MDBCardText,
-    MDBBtnGroup,
 } from 'mdb-react-ui-kit';
 import axios from 'axios';
 
@@ -87,19 +86,19 @@ const Products = () => {
 
             <div className='d-flex flex-wrap justify-content-center align-items-center gap-1 mt-3'>
                 <MDBBtn color='secondary' outline className={Styles.catagoryBtn}>
-                    catagory 1
+                    Mens
+                </MDBBtn>
+                <MDBBtn color='secondary' size outline className={Styles.catagoryBtn}>
+                    Womens
                 </MDBBtn>
                 <MDBBtn color='secondary' outline className={Styles.catagoryBtn}>
-                    catagory 2
+                Jewelery
                 </MDBBtn>
                 <MDBBtn color='secondary' outline className={Styles.catagoryBtn}>
-                    catagory 3
-                </MDBBtn>
-                <MDBBtn color='secondary' outline className={Styles.catagoryBtn}>
-                    catagory 4
+                    Sports
                 </MDBBtn>
                 {<MDBBtn color='secondary' outline className={Styles.catagoryBtn}>
-                    catagory 5
+                    electronics
                 </MDBBtn>}
             </div>
 
@@ -130,7 +129,7 @@ const Products = () => {
                                     {evaluate(item.rating)}
                                 </div>
                                 <div className="favorite">
-                                    <FavoriteBorderIcon style={{ fontSize: 25, color: 'red' }} />
+                                    <ThumbUpOffAltIcon style={{ fontSize: 25, color: 'red' }} />
                                 </div>
                             </div>
                             <div className='d-flex justify-content-center align-items-center mb-3'>

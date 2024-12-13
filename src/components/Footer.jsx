@@ -14,28 +14,20 @@ export default function Footer() {
         <MDBFooter className='text-center' color='white' bgColor='secondary'>
             <MDBContainer className='p-4'>
                 <section className='mb-4'>
-                    <MDBBtn outline color="light" floating className='m-1' href='#!' role='button'>
-                        <MDBIcon fab icon='facebook-f' />
+                    <MDBBtn tag='a' color='none' className='m-1' style={{ color: '#3b5998' }}>
+                        <MDBIcon fab icon='facebook-f' size='xl' />
                     </MDBBtn>
 
-                    <MDBBtn outline color="light" floating className='m-1' href='#!' role='button'>
-                        <MDBIcon fab icon='twitter' />
+                    <MDBBtn tag='a' color='none' className='m-1' style={{ color: '#55acee' }}>
+                        <MDBIcon fab icon='twitter' size='xl' />
                     </MDBBtn>
 
-                    <MDBBtn outline color="light" floating className='m-1' href='#!' role='button'>
-                        <MDBIcon fab icon='google' />
+                    <MDBBtn tag='a' color='none' className='m-1' style={{ color: '#dd4b39' }}>
+                        <MDBIcon fab icon='google' size='xl' />
                     </MDBBtn>
 
-                    <MDBBtn outline color="light" floating className='m-1' href='#!' role='button'>
-                        <MDBIcon fab icon='instagram' />
-                    </MDBBtn>
-
-                    <MDBBtn outline color="light" floating className='m-1' href='#!' role='button'>
-                        <MDBIcon fab icon='linkedin-in' />
-                    </MDBBtn>
-
-                    <MDBBtn outline color="light" floating className='m-1' href='#!' role='button'>
-                        <MDBIcon fab icon='github' />
+                    <MDBBtn tag='a' color='none' className='m-1' style={{ color: '#ac2bac' }}>
+                        <MDBIcon fab icon='instagram' size='xl' />
                     </MDBBtn>
                 </section>
 

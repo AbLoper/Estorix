@@ -2,35 +2,48 @@ import { Button } from 'react-bootstrap';
 import Container from 'react-bootstrap/Container';
 import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
-import NavDropdown from 'react-bootstrap/NavDropdown';
+import LoginIcon from '@mui/icons-material/Login';
+import AppRegistrationIcon from '@mui/icons-material/AppRegistration';
+// import InfoIcon from '@mui/icons-material/Info';
+import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
+import { MDBBadge } from 'mdb-react-ui-kit';
+import Logo from '../assets/images/logos/shopping-cart-logo.png'
+
 
 function NavScroll() {
     return (
-        <Navbar collapseOnSelect expand="md" className="bg-body-tertiary">
+        <Navbar collapseOnSelect expand="md" className="bg-body-tertiary fixed-top">
             <Container>
-                <Navbar.Brand href="/">React-Bootstrap</Navbar.Brand>
+                <Navbar.Brand href="/">
+                    <img
+                        src={Logo}
+                        width="50rem"
+                        height="50rem"
+                        className="d-inline-block align-top"
+                        alt="Logo"
+                    /></Navbar.Brand>
                 <Navbar.Toggle aria-controls="responsive-navbar-nav" className='bg-danger'>/-/</Navbar.Toggle>
                 <Navbar.Collapse id="responsive-navbar-nav" >
                     <Nav className="me-auto">
                         <Nav.Link href="#features">Features</Nav.Link>
                         <Nav.Link href="#pricing">Pricing</Nav.Link>
-                        <NavDropdown title="Dropdown" id="collapsible-nav-dropdown">
-                            <NavDropdown.Item href="#action/3.1">Action</NavDropdown.Item>
-                            <NavDropdown.Item href="#action/3.2">
-                                Another action
-                            </NavDropdown.Item>
-                            <NavDropdown.Item href="#action/3.3">Something</NavDropdown.Item>
-                            <NavDropdown.Divider />
-                            <NavDropdown.Item href="#action/3.4">
-                                Separated link
-                            </NavDropdown.Item>
-                        </NavDropdown>
+
                     </Nav>
                     <Nav>
-                        <Nav.Link href="/about"><Button variant="outline-primary">About</Button></Nav.Link>
-                        <Nav.Link href="/login"><Button variant="outline-primary">Login</Button></Nav.Link>
-                        <Nav.Link href="/register"><Button variant="outline-primary">SignUp</Button></Nav.Link>
+                        <Nav.Link href="/login">
+                            <Button variant="outline-primary">Login<LoginIcon /></Button>
+                        </Nav.Link>
+                        <Nav.Link href="/register">
+                            <Button variant="outline-primary">SignUp<AppRegistrationIcon /></Button>
+                        </Nav.Link>
                     </Nav>
+                    <a href='/checkout'>
+                        <ShoppingCartIcon fontSize='large' />
+                        <MDBBadge color='danger' notification pill>
+                            13
+                        </MDBBadge>
+                    </a>
+                    {/* </ShoppingCartIcon> */}
                 </Navbar.Collapse>
             </Container>
         </Navbar>
@@ -38,3 +51,6 @@ function NavScroll() {
 }
 
 export default NavScroll;
+
+
+

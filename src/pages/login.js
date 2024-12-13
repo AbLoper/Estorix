@@ -37,7 +37,7 @@ function App() {
                     </MDBCol>
 
                     <MDBCol md={6}>
-                        <MDBCardBody className='d-flex flex-column dataFields'>
+                        <MDBCardBody className='d-flex flex-column dataFields pt-5'>
 
                             {<div className='d-flex flex-row mt-2'>
                                 <MDBIcon fas icon="cubes fa-3x me-3" style={{ color: '#ff6219' }} />
