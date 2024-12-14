@@ -8,12 +8,12 @@ import Product from "./pages/product"
 function App() {
   return (
     <>
-{/*       <NavScroll />
+      <NavScroll />
       <Carousel />
       <UnderConstrution />
       <Products />
-      <Footer /> */}
-      <Product/>
+      <Footer />
+      {/* <Product/> */}
     </>
   )
 }
