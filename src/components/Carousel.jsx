@@ -1,22 +1,23 @@
 import { MDBCarousel, MDBCarouselItem, MDBCarouselCaption } from 'mdb-react-ui-kit';
 import CarouselImages from '../assets.js'
+import Styles from '../styles/carousel.module.css'
 
 export default function Carousel() {
     const interval = 2500
 
     return (
+
         <MDBCarousel
             showIndicators={false}
             showControls={false}
             fade={true}
             interval={interval}
             ride={null}
-        >
-            <MDBCarouselItem itemId={1}>
+        >        <MDBCarouselItem itemId={1}>
                 <img
                     src={CarouselImages.carousel1}
-                    className="d-block w-100"
-                    alt="First slide"
+                    className={`${Styles.carouselImage} d-block w-100`}
+                    alt='...'
                 />
                 <MDBCarouselCaption>
                     <h5>First slide label</h5>
@@ -27,8 +28,8 @@ export default function Carousel() {
             <MDBCarouselItem itemId={2}>
                 <img
                     src={CarouselImages.carousel2}
-                    className="d-block w-100"
-                    alt="Second slide"
+                    className={`${Styles.carouselImage} d-block w-100`}
+                    alt='...'
                 />
                 <MDBCarouselCaption>
                     <h5>Second slide label</h5>
@@ -39,8 +40,8 @@ export default function Carousel() {
             <MDBCarouselItem itemId={3}>
                 <img
                     src={CarouselImages.carousel3}
-                    className="d-block w-100"
-                    alt="Third slide"
+                    className={`${Styles.carouselImage} d-block w-100`}
+                    alt='...'
                 />
                 <MDBCarouselCaption>
                     <h5>Third slide label</h5>
