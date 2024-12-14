@@ -15,7 +15,7 @@ import {
 }
     from 'mdb-react-ui-kit';
 
-function Register() {
+export default function Register() {
     const navigate = useNavigate();
 
     const handleClick = (event) => {
@@ -90,5 +90,3 @@ function Register() {
         </MDBContainer>
     );
 }
-
-export default Register;
