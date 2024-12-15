@@ -1,9 +1,10 @@
 import Footer from "./components/Footer"
 import NavScroll from "./components/Navbar"
 import UnderConstrution from "./components/UnderConstrution"
-import Products from "./components/Products"
+import Products from "./pages/products"
 import Carousel from "./components/Carousel"
-import Product from "./pages/product"
+import ContactUs from "./pages/contactus"
+// import Product from "./pages/product"
 
 function App() {
   return (
@@ -14,6 +15,7 @@ function App() {
       <Products />
       <Footer />
       {/* <Product/> */}
+      {/* <ContactUs/> */}
     </>
   )
 }

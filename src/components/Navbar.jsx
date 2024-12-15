@@ -4,8 +4,8 @@ import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
 import LoginIcon from '@mui/icons-material/Login';
 import AppRegistrationIcon from '@mui/icons-material/AppRegistration';
-// import InfoIcon from '@mui/icons-material/Info';
 import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
+import FavoriteIcon from '@mui/icons-material/Favorite';
 import { MDBBadge } from 'mdb-react-ui-kit';
 import Logo from '../assets/images/logos/shopping-cart-logo.png'
 
@@ -26,7 +26,7 @@ function NavScroll() {
                 <Navbar.Collapse id="responsive-navbar-nav" >
                     <Nav className="me-auto">
                         <Nav.Link href="#features">Features</Nav.Link>
-                        <Nav.Link href="#pricing">Pricing</Nav.Link>
+                        <Nav.Link href="/contactus">Contact Us</Nav.Link>
 
                     </Nav>
                     <Nav>
@@ -37,13 +37,20 @@ function NavScroll() {
                             <Button variant="outline-primary">SignUp<AppRegistrationIcon /></Button>
                         </Nav.Link>
                     </Nav>
-                    <a href='/checkout'>
-                        <ShoppingCartIcon fontSize='large' />
-                        <MDBBadge color='danger' notification pill>
-                            13
-                        </MDBBadge>
-                    </a>
-                    {/* </ShoppingCartIcon> */}
+                    <div className='cartInbox d-flex justify-content-around align-items-center gap-4'>
+                        <a href='/checkout'>
+                            <ShoppingCartIcon fontSize='large' />
+                            <MDBBadge color='danger' notification pill>
+                                13
+                            </MDBBadge>
+                        </a>
+                        <a href='/checkout'>
+                            <FavoriteIcon fontSize='large' />
+                            <MDBBadge color='danger' notification pill>
+                                6
+                            </MDBBadge>
+                        </a>
+                    </div>
                 </Navbar.Collapse>
             </Container>
         </Navbar>

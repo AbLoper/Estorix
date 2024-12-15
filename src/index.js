@@ -9,6 +9,7 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 
 import Login from './pages/login';
 import Register from './pages/register';
+import ContactUs from './pages/contactus';
 import NotFound from './pages/notFound';
 import App from './App';
 
@@ -20,6 +21,7 @@ root.render(
       <Route path="/" element={<App />} />
       <Route path="/login" element={<Login />} />
       <Route path="/register" element={<Register />} />
+      <Route path="/contactus" element={<ContactUs />} />
       <Route path="*" element={<NotFound />} />
     </Routes>
   </BrowserRouter>
