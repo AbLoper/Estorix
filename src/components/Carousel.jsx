@@ -3,7 +3,7 @@ import CarouselImages from '../assets.js'
 import Styles from '../styles/carousel.module.css'
 
 export default function Carousel() {
-    const interval = 3000
+    const interval = 4000
 
     return (
 
