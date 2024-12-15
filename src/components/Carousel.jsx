@@ -3,7 +3,7 @@ import CarouselImages from '../assets.js'
 import Styles from '../styles/carousel.module.css'
 
 export default function Carousel() {
-    const interval = 2500
+    const interval = 3000
 
     return (
 
@@ -13,7 +13,8 @@ export default function Carousel() {
             fade={true}
             interval={interval}
             ride={null}
-        >        <MDBCarouselItem itemId={1}>
+            className={Styles.carouselInner}
+        >        <MDBCarouselItem className={Styles.carouselItem} itemId={1}>
                 <img
                     src={CarouselImages.carousel1}
                     className={`${Styles.carouselImage} d-block w-100`}
@@ -25,7 +26,7 @@ export default function Carousel() {
                 </MDBCarouselCaption>
             </MDBCarouselItem>
 
-            <MDBCarouselItem itemId={2}>
+            <MDBCarouselItem className={Styles.carouselItem} itemId={2}>
                 <img
                     src={CarouselImages.carousel2}
                     className={`${Styles.carouselImage} d-block w-100`}
@@ -37,7 +38,7 @@ export default function Carousel() {
                 </MDBCarouselCaption>
             </MDBCarouselItem>
 
-            <MDBCarouselItem itemId={3}>
+            <MDBCarouselItem className={Styles.carouselItem} itemId={3}>
                 <img
                     src={CarouselImages.carousel3}
                     className={`${Styles.carouselImage} d-block w-100`}
