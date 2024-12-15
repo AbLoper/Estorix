@@ -125,9 +125,10 @@ const Products = () => {
                                 />
                             </div>
                             <MDBCardBody className='d-flex flex-column'>
-                                <MDBCardTitle>{item.title}</MDBCardTitle>
+                                <MDBCardTitle>
+                                    {item.title.length > 35 ? `${item.title.substring(0, 35)}...` : item.title}                                    </MDBCardTitle>
                                 <MDBCardText>
-                                    {item.description.length > 100 ? `${item.description.substring(0, 100)}...` : item.description}
+                                    {item.description.length > 50 ? `${item.description.substring(0, 50)}...` : item.description}
                                 </MDBCardText>
                                 <p>{item.price}$</p>
                             </MDBCardBody>
