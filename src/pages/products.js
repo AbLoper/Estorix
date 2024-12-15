@@ -119,13 +119,16 @@ const Products = () => {
                                     style={{
                                         width: '85%',
                                         objectFit: 'contain',
+                                        height: '20rem',
                                         marginTop: '1rem',
                                     }}
                                 />
                             </div>
                             <MDBCardBody className='d-flex flex-column'>
                                 <MDBCardTitle>{item.title}</MDBCardTitle>
-                                <MDBCardText>{item.description}</MDBCardText>
+                                <MDBCardText>
+                                    {item.description.length > 100 ? `${item.description.substring(0, 100)}...` : item.description}
+                                </MDBCardText>
                                 <p>{item.price}$</p>
                             </MDBCardBody>
                             <div className="evaluation d-flex flex-row justify-content-around align-items-end p-3">
