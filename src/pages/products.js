@@ -20,8 +20,8 @@ const Products = () => {
     const [products, setProducts] = useState([]);
     const [loading, setLoading] = useState(true);
     const [error, setError] = useState(null);
-    const [categoryFilter, setCategoryFilter] = useState('All'); // حالة الفئة
-    const [searchQuery, setSearchQuery] = useState(''); // النص المدخل في خانة البحث
+    const [categoryFilter, setCategoryFilter] = useState('All');
+    const [searchQuery, setSearchQuery] = useState('');
 
     useEffect(() => {
         axios
@@ -36,7 +36,6 @@ const Products = () => {
             });
     }, []);
 
-    // دالة التقييم (التنجيم)
     const evaluate = (rating) => {
         const stars = [];
         for (let i = 1; i <= 5; i++) {
@@ -47,19 +46,16 @@ const Products = () => {
         return stars;
     };
 
-    // تصفية المنتجات بناءً على الفئة والبحث
     const filterProducts = () => {
         let filteredProducts = products;
 
-        // تصفية الفئة
         if (categoryFilter !== 'All') {
             filteredProducts = filteredProducts.filter(item => item.category === categoryFilter);
         }
 
-        // تصفية البحث
         if (searchQuery) {
-            filteredProducts = filteredProducts.filter(item => 
-                item.title.toLowerCase().includes(searchQuery.toLowerCase()) || 
+            filteredProducts = filteredProducts.filter(item =>
+                item.title.toLowerCase().includes(searchQuery.toLowerCase()) ||
                 item.description.toLowerCase().includes(searchQuery.toLowerCase())
             );
         }
@@ -115,10 +111,9 @@ const Products = () => {
         ));
     };
 
-    // عند الضغط على زر الفئة
     const handleCategoryClick = (category) => {
         setCategoryFilter(category);
-        setSearchQuery(''); // مسح النص في خانة البحث عند اختيار فئة
+        setSearchQuery('');
     };
 
     if (error) {
@@ -136,10 +131,10 @@ const Products = () => {
         return <h1>Loading...</h1>;
     }
 
-    // استخراج الفئات الفريدة من المنتجات
     const categories = ['All', ...new Set(products.map(product => product.category))];
 
     return (
+
         <MDBContainer className='mb-4'>
             <MDBInputGroup tag='form' onSubmit={(e) => e.preventDefault()}>
                 <input
@@ -148,18 +143,18 @@ const Products = () => {
                     aria-label='Search'
                     type='Search'
                     value={searchQuery}
-                    onChange={(e) => setSearchQuery(e.target.value)} // تحديث البحث بناءً على النص المدخل
+                    onChange={(e) => setSearchQuery(e.target.value)}
                 />
                 <MDBBtn outline className='mx-1'>Search</MDBBtn>
             </MDBInputGroup>
 
             <div className='d-flex flex-wrap justify-content-center align-items-center gap-1 mt-3'>
                 {categories.map((category, index) => (
-                    <MDBBtn 
-                        key={index} 
-                        color='secondary' 
-                        outline 
-                        onClick={() => handleCategoryClick(category)} 
+                    <MDBBtn
+                        key={index}
+                        color='secondary'
+                        outline
+                        onClick={() => handleCategoryClick(category)}
                         className={Styles.catagoryBtn}
                     >
                         {category}
