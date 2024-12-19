@@ -27,12 +27,19 @@ export default function NavScroll() {
                         <Nav.Link href="/contactus">Contact Us</Nav.Link>
                         <Nav.Link href="/about">About</Nav.Link>
                     </Nav>
-                    <Nav className='align-items-center'>
-                        <div id="userRegistered" className='d-flex justify-content-center' style={{ backgroundColor: "lightblue", height: "3.5rem" }} >
-                            <h6 style={{ lineHeight: "3.5rem" }}>Welcome 'User'</h6>
+                    <Nav className='align-items-center gap-1'>
+                        <div id="userRegistered" className='d-flex justify-content-center' style={{
+                            backgroundColor: "lightblue",
+                            height: "3.6rem",
+                            display: "block"
+                        }} >
+                            <h6 style={{ lineHeight: "3.5rem" }}>Welcome USER</h6>
                         </div>
 
-                        <div className='d-flex justify-content-center align-items-center' style={{ backgroundColor: "lightsalmon" }}>
+                        <div className='d-flex justify-content-center align-items-center' style={{
+                            backgroundColor: "lightsalmon",
+                            display: "block"
+                        }}>
                             <Nav.Link href="/login">
                                 <Button variant="outline-primary">Login<LoginIcon /></Button>
                             </Nav.Link>
@@ -40,7 +47,10 @@ export default function NavScroll() {
                                 <Button variant="outline-primary">SignUp<AppRegistrationIcon /></Button>
                             </Nav.Link>
                         </div>
-                        <div className='d-flex justify-content-center align-items-center gap-2' style={{ backgroundColor: "lightgreen", lineHeight: "2.5rem" }}>
+                        <div className='d-flex justify-content-center align-items-center gap-2' style={{
+                            backgroundColor: "lightgreen",
+                            lineHeight: "2.5rem"
+                        }}>
                             <Nav.Link href='/checkout'>
                                 <ShoppingCartIcon fontSize='large' />
                                 <MDBBadge color='danger' notification pill>
