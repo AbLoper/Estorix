@@ -9,7 +9,6 @@ import FavoriteIcon from '@mui/icons-material/Favorite';
 import { MDBBadge } from 'mdb-react-ui-kit';
 import Logo from '../assets/images/logos/shopping-cart-logo.png'
 
-
 function NavScroll() {
     return (
         <Navbar collapseOnSelect expand="md" className="bg-body-tertiary fixed-top">
