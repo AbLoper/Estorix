@@ -16,7 +16,6 @@ import NotFound from './pages/notFound';
 import App from './App';
 import NavScroll from "./components/Navbar";
 
-
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <BrowserRouter>
