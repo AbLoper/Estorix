@@ -8,8 +8,7 @@ import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
 import FavoriteIcon from '@mui/icons-material/Favorite';
 import { MDBBadge } from 'mdb-react-ui-kit';
 import Logo from '../assets/images/logos/shopping-cart-logo.png'
-
-function NavScroll() {
+export default function NavScroll() {
     return (
         <Navbar collapseOnSelect expand="md" className="bg-body-tertiary fixed-top">
             <Container>
@@ -21,7 +20,7 @@ function NavScroll() {
                         className="d-inline-block align-top"
                         alt="Logo" />
                 </Navbar.Brand>
-                <Navbar.Toggle aria-controls="responsive-navbar-nav" className='bg-secondary text-light'>///</Navbar.Toggle>
+                <Navbar.Toggle aria-controls="responsive-navbar-nav" className='bg-secondary text-light'>O</Navbar.Toggle>
                 <Navbar.Collapse id="responsive-navbar-nav" className='d-flex justify-content-between align-items-center'>
                     <Nav>
                         <Nav.Link href="/">Products</Nav.Link>
@@ -61,8 +60,6 @@ function NavScroll() {
         </Navbar>
     );
 }
-
-export default NavScroll;
 
 
 
