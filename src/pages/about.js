@@ -1,5 +1,3 @@
-import OurProducts from "../components/OurProducts";
-
 export default function About() {
     return (
         <div style={{ marginTop: "10rem", textAlign: "center" }}>
@@ -7,7 +5,7 @@ export default function About() {
                 About Us
             </h1>
 
-            <OurProducts />
+
         </div>
     )
 }
