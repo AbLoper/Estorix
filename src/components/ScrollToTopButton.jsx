@@ -22,7 +22,7 @@ const ScrollToTopButton = () => {
 
     const scrollToTop = () => {
         gsap.to(window, {
-            duration: 3,
+            duration: 2,
             scrollTo: { y: 0 },
             ease: 'linear',
         });

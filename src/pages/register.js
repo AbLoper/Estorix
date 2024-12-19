@@ -25,7 +25,7 @@ export default function Register() {
         }, 1500);
     };
     return (
-        <MDBContainer className='my-5 dataForm'>
+        <MDBContainer  className='dataForm' style={{marginTop:"5rem"}}>
 
             <MDBRow className='align-items-center'>
 
