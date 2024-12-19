@@ -18,7 +18,7 @@ import NavScroll from "./components/Navbar";
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
-  <BrowserRouter>
+  <BrowserRouter future={{ v7_relativeSplatPath: true, v7_startTransition: true }}>
     <NavScroll />
     <Routes>
       <Route path="/" element={<App />} />

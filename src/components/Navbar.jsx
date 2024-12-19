@@ -7,8 +7,32 @@ import AppRegistrationIcon from '@mui/icons-material/AppRegistration';
 import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
 import FavoriteIcon from '@mui/icons-material/Favorite';
 import { MDBBadge } from 'mdb-react-ui-kit';
-import Logo from '../assets/images/logos/shopping-cart-logo.png'
+import Logo from '../assets/images/logos/shopping-cart-logo.png';
+import { useLocation, useNavigate } from 'react-router';
+import { useEffect } from 'react';
+
 export default function NavScroll() {
+    const location = useLocation();
+
+    useEffect(() => {
+        const WelcomeUSER = document.getElementById('WelcomeUSER');
+        const userVisit = document.getElementById('UserVisit');
+        const userCart = document.getElementById('userCart');
+
+        if (userVisit) {
+            if (location.pathname === '/login' || location.pathname === '/register') {
+                WelcomeUSER.style.display = 'none';
+                userVisit.style.display = 'none';
+                userCart.style.display = 'none';
+            } else {
+                WelcomeUSER.style.display = 'flex';
+                userVisit.style.display = 'flex';
+                userCart.style.display = 'flex';
+            }
+        }
+
+    }, [location]); 
+
     return (
         <Navbar collapseOnSelect expand="md" className="bg-body-tertiary fixed-top">
             <Container>
@@ -27,18 +51,19 @@ export default function NavScroll() {
                         <Nav.Link href="/contactus">Contact Us</Nav.Link>
                         <Nav.Link href="/about">About</Nav.Link>
                     </Nav>
-                    <Nav className='align-items-center gap-1'>
-                        <div id="userRegistered" className='d-flex justify-content-center' style={{
-                            backgroundColor: "lightblue",
-                            height: "3.6rem",
-                            display: "block"
-                        }} >
-                            <h6 style={{ lineHeight: "3.5rem" }}>Welcome USER</h6>
-                        </div>
+                    <Nav id="WelcomeUSER" style={{
+                        display: "flex",
+                        justifyContent: "center",
+                        height: "3.6rem",
+                    }} >
+                        <h6 style={{ lineHeight: "3.5rem" }}>Welcome USER</h6>
+                    </Nav>
 
-                        <div className='d-flex justify-content-center align-items-center' style={{
-                            backgroundColor: "lightsalmon",
-                            display: "block"
+                    <Nav className='align-items-center gap-1'>
+                        <div id='UserVisit' style={{
+                            display: "flex",
+                            justifyContent: "center",
+                            alignItems: "center",
                         }}>
                             <Nav.Link href="/login">
                                 <Button variant="outline-primary">Login<LoginIcon /></Button>
@@ -47,8 +72,11 @@ export default function NavScroll() {
                                 <Button variant="outline-primary">SignUp<AppRegistrationIcon /></Button>
                             </Nav.Link>
                         </div>
-                        <div className='d-flex justify-content-center align-items-center gap-2' style={{
-                            backgroundColor: "lightgreen",
+                        <Nav id='userCart' style={{
+                            display: "flex",
+                            justifyContent: "center",
+                            alignItems: "center",
+                            gap: "2",
                             lineHeight: "2.5rem"
                         }}>
                             <Nav.Link href='/checkout'>
@@ -63,13 +91,10 @@ export default function NavScroll() {
                                     6
                                 </MDBBadge>
                             </Nav.Link>
-                        </div>
+                        </Nav>
                     </Nav>
                 </Navbar.Collapse>
             </Container>
         </Navbar>
     );
 }
-
-
-
