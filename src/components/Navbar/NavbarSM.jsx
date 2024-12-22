@@ -23,22 +23,18 @@ export default function NavbarSM() {
     const [openBasic, setOpenBasic] = useState(false);
     const location = useLocation();
 
-    // حالة لتخزين الأنماط
     const [userWelcomeStyle, setUserWelcomeStyle] = useState({});
     const [userVisitStyle, setUserVisitStyle] = useState({});
     const [userCartStyle, setUserCartStyle] = useState({});
 
     useEffect(() => {
-        // تسجيل المسار الحالي للمساعدة في التشخيص
         console.log('Current location:', location.pathname);
 
         if (location.pathname === '/login' || location.pathname === '/register') {
-            // إذا كان المسار هو /login أو /register، اخفِ العناصر
             setUserWelcomeStyle({ display: 'none' });
             setUserVisitStyle({ display: 'none' });
             setUserCartStyle({ display: 'none' });
         } else {
-            // إذا لم يكن المسار هو /login أو /register، عرض العناصر
             setUserWelcomeStyle({ display: 'flex' });
             setUserVisitStyle({
                 display: 'flex',
@@ -73,11 +69,16 @@ export default function NavbarSM() {
                         <MDBNavbarItem>
                             <MDBNavbarItem>
                                 <MDBNavbarLink active aria-current="page" href="#">
-                                    Home
+                                    Products
                                 </MDBNavbarLink>
                             </MDBNavbarItem>
+
                             <MDBNavbarItem>
-                                <MDBNavbarLink href="#">Link</MDBNavbarLink>
+                                <MDBNavbarLink href="/contactus">Contact Us</MDBNavbarLink>
+                            </MDBNavbarItem>
+
+                            <MDBNavbarItem>
+                                <MDBNavbarLink href="/about">About</MDBNavbarLink>
                             </MDBNavbarItem>
 
                             {/* <MDBNavbarItem>
@@ -93,19 +94,21 @@ export default function NavbarSM() {
                                 </MDBDropdown>
                             </MDBNavbarItem> */}
 
-                            <MDBNavbarItem>
+                            {/* <MDBNavbarItem>
                                 <MDBNavbarLink disabled href="#" tabIndex={-1} aria-disabled="true">
                                     Disabled
                                 </MDBNavbarLink>
-                            </MDBNavbarItem>
+                            </MDBNavbarItem> */}
+
+
                         </MDBNavbarItem>
 
-                        {/* تم تصحيح ID واستخدام الأنماط المحفوظة في الحالة */}
                         <MDBNavbarItem id="userWelcome" style={userWelcomeStyle}>
                             <MDBNavbarLink href="#">Username</MDBNavbarLink>
                         </MDBNavbarItem>
 
-                        <MDBNavbarItem className="d-flex justify-content-start align-items-center gap-1">
+
+                        <MDBNavbarItem className="d-flex justify-content-between align-items-center gap-1">
                             {/* تم تصحيح ID واستخدام الأنماط المحفوظة في الحالة */}
                             <MDBNavbarItem id="userVisit" style={userVisitStyle}>
                                 <MDBBtn className="bg-succes" type="button" size='sm'>
@@ -121,12 +124,11 @@ export default function NavbarSM() {
                                 </MDBBtn>
                             </MDBNavbarItem>
 
-                            {/* تم تصحيح ID واستخدام الأنماط المحفوظة في الحالة */}
                             <MDBNavbarItem id="userCart" style={userCartStyle}>
                                 <MDBBadge
                                     color="danger"
-                                    style={{ fontSize: '1rem', width: '2rem', height: '2rem', borderRadius: '50%',lineHeight:"normal" }}
-                                    >
+                                    style={{ fontSize: '1rem', width: '2rem', height: '2rem', borderRadius: '50%', lineHeight: "normal" }}
+                                >
                                     0
                                 </MDBBadge>
                                 <MDBIcon fas icon="shopping-cart" size='2x' />

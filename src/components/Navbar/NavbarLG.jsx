@@ -30,12 +30,10 @@ export default function NavbarLG() {
         console.log('Current location:', location.pathname);
 
         if (location.pathname === '/login' || location.pathname === '/register') {
-            // إذا كان المسار هو /login أو /register، اخفِ العناصر
             setUserWelcomeStyle({ display: 'none' });
             setUserVisitStyle({ display: 'none' });
             setUserCartStyle({ display: 'none' });
         } else {
-            // إذا لم يكن المسار هو /login أو /register، عرض العناصر
             setUserWelcomeStyle({ display: 'flex' });
             setUserVisitStyle({
                 display: 'flex',
@@ -69,6 +67,8 @@ export default function NavbarLG() {
                             <MDBNavbarLink href="/about">About</MDBNavbarLink>
                         </MDBNavbarItem>
                     </MDBNavbarItem>
+
+
                         {/* <MDBNavbarItem>
                             <MDBDropdown>
                                 <MDBDropdownToggle tag="a" className="nav-link" role="button">
@@ -83,13 +83,11 @@ export default function NavbarLG() {
                         </MDBNavbarItem> */}
 
 
-                    {/* تم تصحيح ID */}
                     <MDBNavbarItem id="userWelcome" style={userWelcomeStyle}>
                         <MDBNavbarLink href="#">Username</MDBNavbarLink>
                     </MDBNavbarItem>
 
                     <MDBNavbarItem className="d-flex justify-content-center align-items-center gap-2">
-                        {/* تم تصحيح ID */}
                         <MDBNavbarItem id="userVisit" style={userVisitStyle}>
                             <MDBBtn className="bg-succes" type="button" size="sm">
                                 <MDBNavbarLink href="/login" className='text-light'>
@@ -104,7 +102,6 @@ export default function NavbarLG() {
                             </MDBBtn>
                         </MDBNavbarItem>
 
-                        {/* تم تصحيح ID */}
                         <MDBNavbarItem id="userCart" style={userCartStyle}>
                             <MDBBadge
                                 color="danger"
