@@ -2,13 +2,13 @@ import React from 'react';
 import Footer from "./components/Footer";
 import UnderConstrution from "./components/UnderConstrution";
 import Products from "./pages/products";
-import Carousel from "./components/Carousel";
 import ScrollToTopButton from './components/ScrollToTopButton';
+import Jumbotron from './components/Jumbotron';
 
 function App() {
   return (
     <>
-      <Carousel />
+      <Jumbotron />
       <UnderConstrution />
       <Products />
       <Footer />

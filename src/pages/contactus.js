@@ -30,10 +30,10 @@ export default function ContactUs() {
     };
 
     return (
-        <div className='d-flex flex-column justify-content-center align-items-center min-vh-100'>
+        <div className='d-flex flex-column justify-content-center align-items-center'>
             <h3 className='my-4'>Contact Us</h3>
-            <form onSubmit={handleSubmit} className='w-50'>
-                <MDBInputGroup className='mb-3' noBorder textBefore={<MDBIcon fas icon='user' />}>
+            <form onSubmit={handleSubmit} className='w-75'>
+                <MDBInputGroup className='mb-3 bg-secondary' noBorder textBefore={<MDBIcon color='light' fas icon='user' />}>
                     <input
                         className='form-control'
                         type='text'
@@ -44,7 +44,7 @@ export default function ContactUs() {
                     />
                 </MDBInputGroup>
 
-                <MDBInputGroup className='mb-3' noBorder textBefore={<MDBIcon fas icon='envelope' />}>
+                <MDBInputGroup className='mb-3 bg-secondary' noBorder textBefore={<MDBIcon color='light' fas icon='envelope' />}>
                     <input
                         className='form-control'
                         type='email'

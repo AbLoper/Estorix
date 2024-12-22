@@ -1,5 +1,6 @@
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
+import LoginPic from '../assets/images/login/login.webp'
 
 import {
     MDBBtn,
@@ -27,13 +28,13 @@ function App() {
         }, 1500);
     };
     return (
-        <MDBContainer style={{ marginTop: "5rem" }}>
+        <MDBContainer className='dataForm' style={{ marginTop: "1rem" }}>
 
             <MDBCard className='p-2'>
                 <MDBRow >
 
                     <MDBCol md={6} className='p-3' >
-                        <MDBCardImage style={{ maxHeight: '75vh' }} src='https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-login-form/img1.webp' alt="login form" className='rounded-start w-100' />
+                        <MDBCardImage style={{ maxHeight: '75vh' }} src={LoginPic} alt="login form" className='rounded-start w-100' />
                     </MDBCol>
 
                     <MDBCol md={6}>

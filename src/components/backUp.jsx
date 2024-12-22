@@ -8,36 +8,37 @@ import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
 import FavoriteIcon from '@mui/icons-material/Favorite';
 import { MDBBadge } from 'mdb-react-ui-kit';
 import Logo from '../assets/images/logos/shopping-cart-logo.png';
-import { useLocation, useNavigate } from 'react-router';
+import { useLocation } from 'react-router';
 import { useEffect } from 'react';
 
 export default function NavScroll() {
     const location = useLocation();
 
     useEffect(() => {
-        const WelcomeUSER = document.getElementById('WelcomeUSER');
+        const welcomeUSER = document.getElementById('welcomeUSER');
         const userVisit = document.getElementById('UserVisit');
         const userCart = document.getElementById('userCart');
 
         if (userVisit) {
             if (location.pathname === '/login' || location.pathname === '/register') {
-                WelcomeUSER.style.display = 'none';
+                welcomeUSER.style.display = 'none';
                 userVisit.style.display = 'none';
                 userCart.style.display = 'none';
             } else {
-                WelcomeUSER.style.display = 'flex';
+                welcomeUSER.style.display = 'flex';
                 userVisit.style.display = 'flex';
                 userCart.style.display = 'flex';
             }
         }
 
-    }, [location]); 
+    }, [location]);
 
     return (
         <Navbar collapseOnSelect expand="md" className="bg-body-tertiary fixed-top">
             <Container>
-                <Navbar.Brand href="/">
+                <Navbar.Brand href="/" id='logo'>
                     <img
+
                         src={Logo}
                         width="50rem"
                         height="50rem"
@@ -56,7 +57,7 @@ export default function NavScroll() {
                         justifyContent: "center",
                         height: "3.6rem",
                     }} >
-                        <h6 style={{ lineHeight: "3.5rem" }}>Welcome USER</h6>
+                        <h6 id='welcomeUSER' style={{ lineHeight: "3.5rem" }}>Welcome USER</h6>
                     </Nav>
 
                     <Nav className='align-items-center gap-1'>
@@ -65,10 +66,10 @@ export default function NavScroll() {
                             justifyContent: "center",
                             alignItems: "center",
                         }}>
-                            <Nav.Link href="/login">
+                            <Nav.Link href="/login" id=''>
                                 <Button variant="outline-primary">Login<LoginIcon /></Button>
                             </Nav.Link>
-                            <Nav.Link href="/register">
+                            <Nav.Link href="/register" id=''>
                                 <Button variant="outline-primary">SignUp<AppRegistrationIcon /></Button>
                             </Nav.Link>
                         </div>
@@ -76,7 +77,7 @@ export default function NavScroll() {
                             display: "flex",
                             justifyContent: "center",
                             alignItems: "center",
-                            gap: "2",
+                            gap: ".5rem",
                             lineHeight: "2.5rem"
                         }}>
                             <Nav.Link href='/checkout'>
