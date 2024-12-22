@@ -30,7 +30,7 @@ export default function ContactUs() {
     };
 
     return (
-        <div className='d-flex flex-column justify-content-center align-items-center'>
+        <div className='d-flex flex-column justify-content-center align-items-center' style={{marginTop:"5rem"}}>
             <h3 className='my-4'>Contact Us</h3>
             <form onSubmit={handleSubmit} className='w-75'>
                 <MDBInputGroup className='mb-3 bg-secondary' noBorder textBefore={<MDBIcon color='light' fas icon='user' />}>

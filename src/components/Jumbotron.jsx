@@ -12,7 +12,8 @@ export default function Jumbotron() {
                 className='p-5 text-center bg-image img-thumbnail'
                 style={{
                     backgroundImage: `url(${JumbotronImage})`,
-                    height: '30rem'
+                    height: '30rem',
+                    marginTop:"4rem"
                 }} 
             >
                 <div className='mask' style={{ backgroundColor: 'rgba(0, 0, 0, 0.6)' }}>

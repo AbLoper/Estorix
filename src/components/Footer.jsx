@@ -11,7 +11,7 @@ import {
 
 export default function Footer() {
     return (
-        <MDBFooter className='text-center' color='white' bgColor='secondary'>
+        <MDBFooter className='text-center' color='secondary' bgColor='light'>
             <MDBContainer className='p-4'>
                 <section className='mb-4'>
                     <MDBBtn tag='a' color='none' className='m-1' style={{ color: '#3b5998' }}>
@@ -33,19 +33,19 @@ export default function Footer() {
 
                 <section className=''>
                     <form action=''>
-                        <MDBRow className='d-flex justify-content-center'>
+                        <MDBRow className='d-flex justify-content-center align-items-center'>
                             <MDBCol size="auto">
-                                <p className='pt-2'>
+                                <p>
                                     <strong>Sign up for our newsletter</strong>
                                 </p>
                             </MDBCol>
 
                             <MDBCol md='5' start>
-                                <MDBInput contrast type='email' label='Email address' className='mb-4' />
+                                <MDBInput type='email' label='Email address' className='mb-4  shadow-0 border'  />
                             </MDBCol>
 
                             <MDBCol size="auto">
-                                <MDBBtn outline color='light' type='submit' className='mb-4'>
+                                <MDBBtn outline color='secondary' type='submit' className='mb-4'>
                                     Subscribe
                                 </MDBBtn>
                             </MDBCol>
@@ -68,22 +68,22 @@ export default function Footer() {
 
                             <ul className='list-unstyled mb-0'>
                                 <li>
-                                    <a href='#!' className='text-white'>
+                                    <a href='#!' className='text-secondary'>
                                         Link 1
                                     </a>
                                 </li>
                                 <li>
-                                    <a href='#!' className='text-white'>
+                                    <a href='#!' className='text-secondary'>
                                         Link 2
                                     </a>
                                 </li>
                                 <li>
-                                    <a href='#!' className='text-white'>
+                                    <a href='#!' className='text-secondary'>
                                         Link 3
                                     </a>
                                 </li>
                                 <li>
-                                    <a href='#!' className='text-white'>
+                                    <a href='#!' className='text-secondary'>
                                         Link 4
                                     </a>
                                 </li>
@@ -95,22 +95,22 @@ export default function Footer() {
 
                             <ul className='list-unstyled mb-0'>
                                 <li>
-                                    <a href='#!' className='text-white'>
+                                    <a href='#!' className='text-secondary'>
                                         Link 1
                                     </a>
                                 </li>
                                 <li>
-                                    <a href='#!' className='text-white'>
+                                    <a href='#!' className='text-secondary'>
                                         Link 2
                                     </a>
                                 </li>
                                 <li>
-                                    <a href='#!' className='text-white'>
+                                    <a href='#!' className='text-secondary'>
                                         Link 3
                                     </a>
                                 </li>
                                 <li>
-                                    <a href='#!' className='text-white'>
+                                    <a href='#!' className='text-secondary'>
                                         Link 4
                                     </a>
                                 </li>
@@ -122,22 +122,22 @@ export default function Footer() {
 
                             <ul className='list-unstyled mb-0'>
                                 <li>
-                                    <a href='#!' className='text-white'>
+                                    <a href='#!' className='text-secondary'>
                                         Link 1
                                     </a>
                                 </li>
                                 <li>
-                                    <a href='#!' className='text-white'>
+                                    <a href='#!' className='text-secondary'>
                                         Link 2
                                     </a>
                                 </li>
                                 <li>
-                                    <a href='#!' className='text-white'>
+                                    <a href='#!' className='text-secondary'>
                                         Link 3
                                     </a>
                                 </li>
                                 <li>
-                                    <a href='#!' className='text-white'>
+                                    <a href='#!' className='text-secondary'>
                                         Link 4
                                     </a>
                                 </li>
@@ -149,22 +149,22 @@ export default function Footer() {
 
                             <ul className='list-unstyled mb-0'>
                                 <li>
-                                    <a href='#!' className='text-white'>
+                                    <a href='#!' className='text-secondary'>
                                         Link 1
                                     </a>
                                 </li>
                                 <li>
-                                    <a href='#!' className='text-white'>
+                                    <a href='#!' className='text-secondary'>
                                         Link 2
                                     </a>
                                 </li>
                                 <li>
-                                    <a href='#!' className='text-white'>
+                                    <a href='#!' className='text-secondary'>
                                         Link 3
                                     </a>
                                 </li>
                                 <li>
-                                    <a href='#!' className='text-white'>
+                                    <a href='#!' className='text-secondary'>
                                         Link 4
                                     </a>
                                 </li>
@@ -174,7 +174,7 @@ export default function Footer() {
                 </section>
             </MDBContainer>
 
-            <div className='text-center p-3' style={{ backgroundColor: 'rgba(0, 0, 0, 0.2)' }}>
+            <div className='text-center p-3 text-dark' style={{ backgroundColor: 'rgba(0, 0, 0, 0.2)' }}>
                 © 2025 Copyright:&nbsp;
                 <a className='text-white' href='https://mdbootstrap.com/'>
                     &nbsp;AbedSlayman.com

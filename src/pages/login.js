@@ -28,7 +28,7 @@ function App() {
         }, 1500);
     };
     return (
-        <MDBContainer className='dataForm' style={{ marginTop: "1rem" }}>
+        <MDBContainer className='dataForm' style={{ marginTop: "5rem" }}>
 
             <MDBCard className='p-2'>
                 <MDBRow >

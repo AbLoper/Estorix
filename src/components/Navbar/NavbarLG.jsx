@@ -48,7 +48,7 @@ export default function NavbarLG() {
     }, [location]);
 
     return (
-        <MDBNavbar expand="lg" light bgColor="light">
+        <MDBNavbar expand="lg" light bgColor="light" fixed='top'>
             <MDBContainer>
                 <MDBNavbarBrand href="#">
                     <MDBNavbarLink href="/">

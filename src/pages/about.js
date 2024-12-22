@@ -1,9 +1,9 @@
 export default function About() {
     return (
-        <div style={{ marginTop: "10rem", textAlign: "center" }}>
-            <h1>
+        <div style={{ marginTop: "7rem", textAlign: "center" }}>
+            <h3>
                 About Us
-            </h1>
+            </h3>
 
 
         </div>
