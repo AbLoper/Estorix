@@ -1,14 +1,10 @@
-import {
-    MDBBtn,
-} from 'mdb-react-ui-kit';
-
 import JumbotronImage from "../assets/images/jumbotron/bg.jpg"
 
 export default function Jumbotron() {
 
     return (
         <header className='p-2'>
-            <div
+           { <div
                 className='p-5 text-center bg-image img-thumbnail'
                 style={{
                     backgroundImage: `url(${JumbotronImage})`,
@@ -24,13 +20,11 @@ export default function Jumbotron() {
                                 Welcome to our store! Discover a wide range of high-quality products at competetive prices,all in one place. Enjoy e seamless
                                 shopping experience with fast delivery and exclusive deals.
                             </p>
-                            {/* <MDBBtn tag="a" outline size="lg">
-                                Call to action
-                            </MDBBtn> */}
+
                         </div>
                     </div>
                 </div>
-            </div>
+            </div>}
         </header>
     );
 }

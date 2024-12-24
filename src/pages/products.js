@@ -13,8 +13,10 @@ import {
     MDBCardBody,
     MDBCardTitle,
     MDBCardText,
+    MDBBtnGroup,
 } from 'mdb-react-ui-kit';
 import axios from 'axios';
+import { useNavigate } from 'react-router';
 
 const Products = () => {
     const [products, setProducts] = useState([]);
@@ -31,7 +33,7 @@ const Products = () => {
                 setLoading(false);
             })
             .catch((err) => {
-                setError('Error Fetching Data');
+                setError('Error Fetching Data', err);
                 setLoading(false);
             });
     }, []);
@@ -63,6 +65,11 @@ const Products = () => {
         return filteredProducts;
     };
 
+    const navigate = useNavigate()
+    const productDetails = (product) => {
+        navigate('/product', { state: { product } });
+    }
+
     const mapProducts = () => {
         return filterProducts().map((item) => (
             <MDBCol key={item.id} xs="12" md="6" lg="3">
@@ -79,6 +86,7 @@ const Products = () => {
                                 height: '20rem',
                                 marginTop: '1rem',
                             }}
+                            onClick={() => productDetails(item)}
                         />
                     </div>
                     <MDBCardBody className='d-flex flex-column'>
@@ -90,7 +98,7 @@ const Products = () => {
                         </MDBCardText>
                         <p>{item.price}$</p>
                     </MDBCardBody>
-                    <div className="evaluation d-flex flex-row justify-content-around align-items-end p-3">
+                    <div className="evaluation d-flex flex-row justify-content-between align-items-end mx-3 px-2">
                         <div className="stars">
                             {evaluate(item.rating)}
                         </div>
@@ -98,14 +106,14 @@ const Products = () => {
                             <ThumbUpOffAltIcon style={{ fontSize: 25, color: 'red' }} />
                         </div>
                     </div>
-                    <div className='d-flex justify-content-center align-items-center mb-3'>
-                        <MDBBtn className='me-1'>
+                    <MDBBtnGroup className='d-flex justify-content-center align-items-center p-3'>
+                        <MDBBtn className='me-1' color='secondary' outline>
                             Buy Now
                         </MDBBtn>
-                        <MDBBtn className='me-1' color='secondary'>
+                        <MDBBtn className='me-1' color='info' outline>
                             Add To Cart
                         </MDBBtn>
-                    </div>
+                    </MDBBtnGroup>
                 </MDBCard>
             </MDBCol>
         ));
@@ -148,11 +156,11 @@ const Products = () => {
                 <MDBBtn outline className='mx-1'>Search</MDBBtn>
             </MDBInputGroup>
 
-            <div className='d-flex flex-wrap justify-content-center align-items-center gap-1 mt-3'>
+            <MDBBtnGroup className='d-flex flex-wrap justify-content-center align-items-center gap-1 mt-3'>
                 {categories.map((category, index) => (
                     <MDBBtn
                         key={index}
-                        color='secondary'
+                        // color='secondary'
                         outline
                         onClick={() => handleCategoryClick(category)}
                         className={Styles.catagoryBtn}
@@ -160,7 +168,7 @@ const Products = () => {
                         {category}
                     </MDBBtn>
                 ))}
-            </div>
+            </MDBBtnGroup>
 
             <MDBRow className='g-3 mt-0'>
                 {mapProducts()}
