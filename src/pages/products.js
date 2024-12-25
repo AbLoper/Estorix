@@ -67,7 +67,7 @@ const Products = () => {
 
     const navigate = useNavigate()
     const productDetails = (product) => {
-        navigate('/product', { from: 'products', product });
+        navigate('/product', { state: { product } });
     }
 
     const mapProducts = () => {
