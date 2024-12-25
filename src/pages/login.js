@@ -28,7 +28,7 @@ function App() {
         }, 1500);
     };
     return (
-        <MDBContainer className='dataForm' style={{ marginTop: "5rem" }}>
+        <MDBContainer className='dataForm' style={{ marginTop: "5rem",marginBottom:"1rem" }}>
 
             <MDBCard className='p-2'>
                 <MDBRow >
@@ -57,7 +57,7 @@ function App() {
                         </MDBCardBody>
                     </MDBCol>
 
-                    <MDBRow className='m-auto my-3'>
+                    <MDBRow className='m-auto mb-2'>
                         <MDBCol>
                             <Accordion defaultActiveKey="0">
                                 <Accordion.Item eventKey="0">
