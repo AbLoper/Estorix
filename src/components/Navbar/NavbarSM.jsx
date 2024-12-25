@@ -9,10 +9,6 @@ import {
     MDBNavbarItem,
     MDBNavbarLink,
     MDBBtn,
-    MDBDropdown,
-    MDBDropdownToggle,
-    MDBDropdownMenu,
-    MDBDropdownItem,
     MDBCollapse,
     MDBBadge,
 } from 'mdb-react-ui-kit';

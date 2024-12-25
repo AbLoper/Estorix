@@ -67,12 +67,12 @@ const Products = () => {
 
     const navigate = useNavigate()
     const productDetails = (product) => {
-        navigate('/product', { state: { product } });
+        navigate('/product', { from: 'products', product });
     }
 
     const mapProducts = () => {
         return filterProducts().map((item) => (
-            <MDBCol xs="12" md="6" lg="3">
+            <MDBCol xs="12" md="6" lg="3" key={item.id}>
                 <MDBCard style={{ height: '100%' }}>
                     <div className='d-flex justify-content-center'>
                         <MDBCardImage

@@ -31,14 +31,13 @@ const ScrollToTopButton = () => {
     return (
         visible && (
             <button
+                className='bg-primary'
                 onClick={scrollToTop}
                 style={{
                     position: 'fixed',
-                    bottom: '20px',
-                    right: '20px',
-                    padding: '10px 10px',
-                    fontSize: '16px',
-                    backgroundColor: '#007bff',
+                    bottom: '2rem',
+                    right: '2rem',
+                    padding: '1rem',
                     color: '#fff',
                     border: '.5px solid #fff',
                     borderRadius: '50px',
