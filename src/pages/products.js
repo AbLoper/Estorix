@@ -72,7 +72,7 @@ const Products = () => {
 
     const mapProducts = () => {
         return filterProducts().map((item) => (
-            <MDBCol key={item.id} xs="12" md="6" lg="3">
+            <MDBCol xs="12" md="6" lg="3">
                 <MDBCard style={{ height: '100%' }}>
                     <div className='d-flex justify-content-center'>
                         <MDBCardImage
