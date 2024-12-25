@@ -57,7 +57,7 @@ function App() {
                         </MDBCardBody>
                     </MDBCol>
 
-                    {<MDBRow>
+                    <MDBRow className='m-auto'>
                         <MDBCol>
                             <Accordion defaultActiveKey="0">
                                 <Accordion.Item eventKey="0">
@@ -74,7 +74,7 @@ function App() {
                                 </Accordion.Item>
                             </Accordion>
                         </MDBCol>
-                    </MDBRow>}
+                    </MDBRow>
 
                 </MDBRow>
             </MDBCard>
