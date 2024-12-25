@@ -22,6 +22,5 @@
   .itemImage {
     max-height: 80vh;
     max-width: 95%;
-    object-fit: contain;
   }
 }

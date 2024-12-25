@@ -24,8 +24,6 @@ export default function Product() {
             position="top"
             style={{
               padding: "1rem",
-              width: "100%",
-              objectFit: "contain",
             }}
           />
         </MDBCol>
