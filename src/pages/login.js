@@ -33,7 +33,7 @@ function App() {
             <MDBCard className='p-2'>
                 <MDBRow >
 
-                    <MDBCol md={6} className='p-3' >
+                    <MDBCol md={6} className='p-4' >
                         <MDBCardImage style={{ maxHeight: '75vh' }} src={LoginPic} alt="login form" className='rounded-start w-100' />
                     </MDBCol>
 
@@ -57,7 +57,7 @@ function App() {
                         </MDBCardBody>
                     </MDBCol>
 
-                    <MDBRow className='m-auto'>
+                    <MDBRow className='m-auto my-3'>
                         <MDBCol>
                             <Accordion defaultActiveKey="0">
                                 <Accordion.Item eventKey="0">
