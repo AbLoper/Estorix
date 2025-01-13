@@ -7,10 +7,6 @@ import {
     MDBNavbarItem,
     MDBNavbarLink,
     MDBBtn,
-    MDBDropdown,
-    MDBDropdownToggle,
-    MDBDropdownMenu,
-    MDBDropdownItem,
     MDBBadge,
 } from 'mdb-react-ui-kit';
 import logo from '../../assets/images/logos/shopping-cart-logo.png';
@@ -20,14 +16,14 @@ import { useLocation } from 'react-router-dom';
 export default function NavbarLG() {
     const location = useLocation();
 
-    // حالة لتخزين الأنماط
     const [userWelcomeStyle, setUserWelcomeStyle] = useState({});
     const [userVisitStyle, setUserVisitStyle] = useState({});
     const [userCartStyle, setUserCartStyle] = useState({});
+    const cartItemsCount = useState(1)
+
 
     useEffect(() => {
-        // تسجيل المسار الحالي للمساعدة في التشخيص
-        console.log('Current location:', location.pathname);
+        // console.log('Current location:', location.pathname);
 
         if (location.pathname === '/login' || location.pathname === '/register') {
             setUserWelcomeStyle({ display: 'none' });
@@ -54,7 +50,7 @@ export default function NavbarLG() {
                     </MDBNavbarLink>
                 </MDBNavbarBrand>
 
-                <MDBNavbarNav className="d-flex justify-content-between">
+                <MDBNavbarNav className="d-flex justify-content-between align-items-center">
                     <MDBNavbarItem className="d-flex">
                         <MDBNavbarItem>
                             <MDBNavbarLink active href="/products">Products</MDBNavbarLink>
@@ -67,21 +63,6 @@ export default function NavbarLG() {
                             <MDBNavbarLink href="/about">About</MDBNavbarLink>
                         </MDBNavbarItem>
                     </MDBNavbarItem>
-
-
-                        {/* <MDBNavbarItem>
-                            <MDBDropdown>
-                                <MDBDropdownToggle tag="a" className="nav-link" role="button">
-                                    Dropdown
-                                </MDBDropdownToggle>
-                                <MDBDropdownMenu>
-                                    <MDBDropdownItem link>Action</MDBDropdownItem>
-                                    <MDBDropdownItem link>Another action</MDBDropdownItem>
-                                    <MDBDropdownItem link>Something else here</MDBDropdownItem>
-                                </MDBDropdownMenu>
-                            </MDBDropdown>
-                        </MDBNavbarItem> */}
-
 
                     <MDBNavbarItem id="userWelcome" style={userWelcomeStyle}>
                         <MDBNavbarLink href="#">Username</MDBNavbarLink>
@@ -102,14 +83,17 @@ export default function NavbarLG() {
                             </MDBBtn>
                         </MDBNavbarItem>
 
-                        <MDBNavbarItem id="userCart" style={userCartStyle}>
+                        <MDBNavbarItem id="userCart" style={userCartStyle} className='d-flex align-items-center'>
                             <MDBBadge
                                 color="danger"
-                                style={{ fontSize: '1rem', width: '2rem', height: '2rem', borderRadius: '50%', lineHeight: "normal" }}
+                                style={{ fontSize:"1rem",width: '100%', height: '2rem', borderRadius: '50%'}}
                             >
-                                0
+                                <p className='mt-1'>{cartItemsCount}</p>
+
                             </MDBBadge>
-                            <MDBIcon fas icon="shopping-cart" size='2x' />
+                            <MDBNavbarLink href='/cart'>
+                                <MDBIcon fas icon="shopping-cart" size='xl' />
+                            </MDBNavbarLink>
                         </MDBNavbarItem>
                     </MDBNavbarItem>
                 </MDBNavbarNav>
