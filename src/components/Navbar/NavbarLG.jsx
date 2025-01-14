@@ -86,13 +86,13 @@ export default function NavbarLG() {
                         <MDBNavbarItem id="userCart" style={userCartStyle} className='d-flex align-items-center'>
                             <MDBBadge
                                 color="danger"
-                                style={{ fontSize:"1rem",width: '100%', height: '2rem', borderRadius: '50%'}}
+                                style={{ fontSize: "1rem", width: '100%', height: '2rem', borderRadius: '50%' }}
                             >
                                 <p className='mt-1'>{cartItemsCount}</p>
 
                             </MDBBadge>
                             <MDBNavbarLink href='/cart'>
-                                <MDBIcon fas icon="shopping-cart" size='xl' />
+                                <MDBIcon fas icon="shopping-cart" size='2x' />
                             </MDBNavbarLink>
                         </MDBNavbarItem>
                     </MDBNavbarItem>

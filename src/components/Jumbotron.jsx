@@ -3,7 +3,7 @@ import JumbotronImage from "../assets/images/jumbotron/bg.jpg"
 export default function Jumbotron() {
 
     return (
-        <header className='p-2'>
+        <header className='p-2 pt-4'>
            { <div
                 className='p-5 text-center bg-image img-thumbnail'
                 style={{

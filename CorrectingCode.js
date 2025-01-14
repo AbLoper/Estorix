@@ -22,7 +22,7 @@ export default function NavbarSM() {
     const [userWelcomeStyle, setUserWelcomeStyle] = useState({});
     const [userVisitStyle, setUserVisitStyle] = useState({});
     const [userCartStyle, setUserCartStyle] = useState({});
-    const cartItemsCount = useState(1)
+    const cartItemsCount = useState(1);
 
     useEffect(() => {
         console.log('Current location:', location.pathname);
@@ -64,20 +64,17 @@ export default function NavbarSM() {
                 <MDBCollapse navbar open={openBasic}>
                     <MDBNavbarNav>
                         <MDBNavbarItem>
-                            <MDBNavbarItem>
-                                <MDBNavbarLink active aria-current="page" href="#">
-                                    Products
-                                </MDBNavbarLink>
-                            </MDBNavbarItem>
+                            <MDBNavbarLink active aria-current="page" href="#">
+                                Products
+                            </MDBNavbarLink>
+                        </MDBNavbarItem>
 
-                            <MDBNavbarItem>
-                                <MDBNavbarLink href="/contactus">Contact Us</MDBNavbarLink>
-                            </MDBNavbarItem>
+                        <MDBNavbarItem>
+                            <MDBNavbarLink href="/contactus">Contact Us</MDBNavbarLink>
+                        </MDBNavbarItem>
 
-                            <MDBNavbarItem>
-                                <MDBNavbarLink href="/about">About</MDBNavbarLink>
-                            </MDBNavbarItem>
-
+                        <MDBNavbarItem>
+                            <MDBNavbarLink href="/about">About</MDBNavbarLink>
                         </MDBNavbarItem>
 
                         <MDBNavbarItem id="userWelcome" style={userWelcomeStyle}>
@@ -104,14 +101,12 @@ export default function NavbarSM() {
                                     color="danger"
                                     style={{ fontSize: '1rem', width: '100%', height: '2rem', borderRadius: '50%' }}
                                 >
-
                                     <p className='mt-1'>{cartItemsCount}</p>
-
                                 </MDBBadge>
                                 <MDBNavbarLink href='/cart'>
                                     <MDBIcon fas icon="shopping-cart" size='xl' />
-
-                                </MDBNavbarLink>                            </MDBNavbarItem>
+                                </MDBNavbarLink>
+                            </MDBNavbarItem>
                         </MDBNavbarItem>
                     </MDBNavbarNav>
                 </MDBCollapse>
