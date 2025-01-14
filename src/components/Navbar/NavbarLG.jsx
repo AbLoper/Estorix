@@ -12,6 +12,7 @@ import {
 import logo from '../../assets/images/logos/shopping-cart-logo.png';
 import { useEffect, useState } from 'react';
 import { useLocation } from 'react-router-dom';
+import { useSelector } from 'react-redux';
 
 export default function NavbarLG() {
     const location = useLocation();
@@ -19,8 +20,15 @@ export default function NavbarLG() {
     const [userWelcomeStyle, setUserWelcomeStyle] = useState({});
     const [userVisitStyle, setUserVisitStyle] = useState({});
     const [userCartStyle, setUserCartStyle] = useState({});
-    const cartItemsCount = useState(1)
 
+    const cartItemsLength = useSelector(state => state.cart.items.length);
+
+    const [cartItemsCount, setCartItemsCount] = useState(cartItemsLength)
+
+
+    useEffect(() => {
+        setCartItemsCount(cartItemsLength)
+    }, [cartItemsLength])
 
     useEffect(() => {
         // console.log('Current location:', location.pathname);

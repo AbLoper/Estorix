@@ -2,6 +2,9 @@ import { MDBBtn, MDBBtnGroup, MDBCardBody, MDBCardImage, MDBCardText, MDBCardTit
 import Styles from '../styles/product.module.css';
 import { useLocation, useNavigate } from 'react-router-dom';
 
+import { addToCart, removeFromCart } from '../reduxToolkit/slices/cartSlice';
+import { useDispatch, useSelector } from 'react-redux';
+
 export default function Product() {
   const location = useLocation();
   const navigate = useNavigate();
@@ -53,7 +56,9 @@ export default function Product() {
               </div>
             </div>
             <MDBBtnGroup shadow="0" aria-label="Basic example" size="sm" className={`${Styles.btnGroup} w-100 gap-1`}>
-              <MDBBtn color="secondary" outline>Add To Cart</MDBBtn>
+              <MDBBtn color="secondary" outline
+                onClick={() => dispatch(removeFromCart(item))}
+              >Add To Cart</MDBBtn>
               <MDBBtn color="info" outline>Buy Now</MDBBtn>
               <MDBBtn color="primary" outline onClick={backward}>
                 <MDBIcon fas icon="angle-left" />

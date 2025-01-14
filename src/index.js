@@ -1,13 +1,13 @@
 import ReactDOM from 'react-dom/client';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import { Provider } from 'react-redux';
-import store from './reduxToolkit/store';  // استيراد الـ store من redux
+import store from './reduxToolkit/store';
 import './styles/mediaQuery.css';
 import 'mdb-react-ui-kit/dist/css/mdb.min.css';
 import '@fortawesome/fontawesome-free/css/all.min.css';
 
-import NavbarApp from './components/Navbar/Navbar';  // استيراد الـ Navbar
-import routes from './routes';  // استيراد المسارات من routes.js
+import NavbarApp from './components/Navbar/Navbar';
+import routes from './routes';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(

@@ -18,7 +18,7 @@ import {
 import axios from 'axios';
 import { useNavigate } from 'react-router';
 import { addToCart, removeFromCart } from '../reduxToolkit/slices/cartSlice';
-import { useDispatch, useSelector } from 'react-redux';
+import { useDispatch } from 'react-redux';
 
 const Products = () => {
     const [products, setProducts] = useState([]);
@@ -28,7 +28,6 @@ const Products = () => {
     const [searchQuery, setSearchQuery] = useState('');
 
     const dispatch = useDispatch();
-    const cartItemsLength = useSelector(state => state.cart.items.length);
 
     useEffect(() => {
         axios
@@ -71,6 +70,7 @@ const Products = () => {
     };
 
     const navigate = useNavigate();
+    
     const productDetails = (product) => {
         navigate('/product', { state: { product } });
     };
