@@ -17,9 +17,6 @@ import {
 }
     from 'mdb-react-ui-kit';
 
-import Accordion from 'react-bootstrap/Accordion';
-
-
 export default function Login() {
     const navigate = useNavigate();
 
