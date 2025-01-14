@@ -17,6 +17,8 @@ import {
 } from 'mdb-react-ui-kit';
 import axios from 'axios';
 import { useNavigate } from 'react-router';
+import { addToCart, removeFromCart } from '../reduxToolkit/slices/cartSlice';
+import { useDispatch, useSelector } from 'react-redux';
 
 const Products = () => {
     const [products, setProducts] = useState([]);
@@ -24,6 +26,9 @@ const Products = () => {
     const [error, setError] = useState(null);
     const [categoryFilter, setCategoryFilter] = useState('All');
     const [searchQuery, setSearchQuery] = useState('');
+
+    const dispatch = useDispatch();
+    const cartItemsLength = useSelector(state => state.cart.items.length);
 
     useEffect(() => {
         axios
@@ -33,7 +38,7 @@ const Products = () => {
                 setLoading(false);
             })
             .catch((err) => {
-                setError('Error Fetching Data', err);
+                setError('Error Fetching Data');
                 setLoading(false);
             });
     }, []);
@@ -65,10 +70,10 @@ const Products = () => {
         return filteredProducts;
     };
 
-    const navigate = useNavigate()
+    const navigate = useNavigate();
     const productDetails = (product) => {
         navigate('/product', { state: { product } });
-    }
+    };
 
     const mapProducts = () => {
         return filterProducts().map((item) => (
@@ -107,10 +112,14 @@ const Products = () => {
                         </div>
                     </div>
                     <MDBBtnGroup className='d-flex justify-content-center align-items-center p-3'>
-                        <MDBBtn className='me-1' color='secondary' outline>
+                        <MDBBtn className='me-1' color='secondary' outline
+                            onClick={() => dispatch(removeFromCart(item))}
+                        >
                             Buy Now
                         </MDBBtn>
-                        <MDBBtn className='me-1' color='info' outline>
+                        <MDBBtn className='me-1' color='info' outline
+                            onClick={() => dispatch(addToCart(item))}
+                        >
                             Add To Cart
                         </MDBBtn>
                     </MDBBtnGroup>
@@ -139,10 +148,9 @@ const Products = () => {
         return <h1>Loading...</h1>;
     }
 
-    const categories = ['All', ...new Set(products.map(product => product.category))];
+    const categories = products.length > 0 ? ['All', ...new Set(products.map(product => product.category))] : ['All'];
 
     return (
-
         <MDBContainer className='mb-4'>
             <MDBInputGroup tag='form' onSubmit={(e) => e.preventDefault()}>
                 <input
@@ -160,7 +168,6 @@ const Products = () => {
                 {categories.map((category, index) => (
                     <MDBBtn
                         key={index}
-                        // color='secondary'
                         outline
                         onClick={() => handleCategoryClick(category)}
                         className={Styles.catagoryBtn}
