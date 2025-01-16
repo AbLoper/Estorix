@@ -8,12 +8,13 @@ import '@fortawesome/fontawesome-free/css/all.min.css';
 
 
 import routes from './routes';
+import NavbarApp from './components/navbar/Navbar';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <Provider store={store}>
     <BrowserRouter future={{ v7_relativeSplatPath: true, v7_startTransition: true }}>
-
+      <NavbarApp />
       <Routes>
         {routes.map((route, index) => (
           <Route key={index} path={route.path} element={route.element} />
