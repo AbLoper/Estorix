@@ -8,7 +8,7 @@ import '@fortawesome/fontawesome-free/css/all.min.css';
 
 
 import routes from './routes';
-import NavbarApp from './components/navbar/Navbar';
+import NavbarApp from './components/navbar/NavbarApp';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(

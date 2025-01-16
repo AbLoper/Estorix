@@ -67,7 +67,7 @@ export default function NavbarSM() {
                     aria-label='Toggle navigation'
                     onClick={() => {
                         setOpenBasic(!openBasic)
-                        console.log("Toggler clicked, current state:", openBasic);
+                        // console.log("Toggler clicked, current state:", openBasic);
                     }
                     }
                 >
