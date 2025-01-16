@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import NavbarSM from './NavbarSM';
 import NavbarLG from './NavbarLG';
 
-const NavbarApp = () => {
+const Navbar = () => {
     const [isSmallScreen, setIsSmallScreen] = useState(false);
 
     useEffect(() => {
@@ -20,4 +20,4 @@ const NavbarApp = () => {
     return isSmallScreen ? <NavbarSM /> : <NavbarLG />;
 };
 
-export default NavbarApp;
+export default Navbar;
