@@ -13,9 +13,12 @@ export const cartSlice = createSlice({
         },
         removeFromCart: (state, action) => {
             state.items = state.items.filter(item => item.id !== action.payload);
-            console.log('item Deleted: ', itemDeleted);
-            console.log('cart items: ', state.items);
+            // console.log('item Deleted: ', itemDeleted);
+            // console.log('cart items: ', state.items);
         },
+        incrementItem: (state) => {
+            // state.items.
+        }
     }
 });
 

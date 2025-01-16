@@ -1,13 +1,14 @@
 import { MDBBtn, MDBBtnGroup, MDBCardBody, MDBCardImage, MDBCardText, MDBCardTitle, MDBCol, MDBContainer, MDBIcon, MDBRow } from 'mdb-react-ui-kit';
-import Styles from '../styles/product.module.css';
+import Styles from './css/product.module.css';
 import { useLocation, useNavigate } from 'react-router-dom';
 
-import { addToCart, removeFromCart } from '../reduxToolkit/slices/cartSlice';
-import { useDispatch, useSelector } from 'react-redux';
+import { removeFromCart } from '../reduxToolkit/slices/cartSlice';
+import { useDispatch } from 'react-redux';
 
 export default function Product() {
   const location = useLocation();
   const navigate = useNavigate();
+  const dispatch = useDispatch()
 
   // تأكد من أن الـ item موجود في location.state
   const item = location.state?.product;

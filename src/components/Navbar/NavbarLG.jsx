@@ -20,11 +20,8 @@ export default function NavbarLG() {
     const [userWelcomeStyle, setUserWelcomeStyle] = useState({});
     const [userVisitStyle, setUserVisitStyle] = useState({});
     const [userCartStyle, setUserCartStyle] = useState({});
-
     const cartItemsLength = useSelector(state => state.cart.items.length);
-
     const [cartItemsCount, setCartItemsCount] = useState(cartItemsLength)
-
 
     useEffect(() => {
         setCartItemsCount(cartItemsLength)
@@ -50,60 +47,59 @@ export default function NavbarLG() {
     }, [location]);
 
     return (
+
         <MDBNavbar expand="lg" light bgColor="light" fixed='top'>
+
             <MDBContainer>
-                <MDBNavbarBrand href="#">
-                    <MDBNavbarLink href="/">
-                        <img src={logo} height="40" alt="" loading="lazy" />
-                    </MDBNavbarLink>
+
+                <MDBNavbarBrand href="/">
+                    <img src={logo} height="40" alt="" loading="lazy" />
                 </MDBNavbarBrand>
 
                 <MDBNavbarNav className="d-flex justify-content-between align-items-center">
-                    <MDBNavbarItem className="d-flex">
-                        <MDBNavbarItem>
-                            <MDBNavbarLink active href="/products">Products</MDBNavbarLink>
-                        </MDBNavbarItem>
-                        <MDBNavbarItem>
-                            <MDBNavbarLink href="/contactus">Contact Us</MDBNavbarLink>
-                        </MDBNavbarItem>
 
-                        <MDBNavbarItem>
-                            <MDBNavbarLink href="/about">About</MDBNavbarLink>
-                        </MDBNavbarItem>
+                    <MDBNavbarItem>
+                        <MDBNavbarLink active href="/products">Products</MDBNavbarLink>
+                    </MDBNavbarItem>
+                    <MDBNavbarItem>
+                        <MDBNavbarLink href="/contactus">Contact Us</MDBNavbarLink>
+                    </MDBNavbarItem>
+                    <MDBNavbarItem>
+                        <MDBNavbarLink href="/about">About</MDBNavbarLink>
                     </MDBNavbarItem>
 
                     <MDBNavbarItem id="userWelcome" style={userWelcomeStyle}>
                         <MDBNavbarLink href="#">Username</MDBNavbarLink>
                     </MDBNavbarItem>
 
-                    <MDBNavbarItem className="d-flex justify-content-center align-items-center gap-2">
-                        <MDBNavbarItem id="userVisit" style={userVisitStyle}>
-                            <MDBBtn className="bg-succes" type="button" size="sm">
-                                <MDBNavbarLink href="/login" className='text-light'>
-                                    Login <MDBIcon fas icon="sign-in-alt" />
-                                </MDBNavbarLink>
-                            </MDBBtn>
 
-                            <MDBBtn className="bg-info" type="button" size="sm">
-                                <MDBNavbarLink href="/register" className='text-light'>
-                                    Register <MDBIcon fas icon="registered" />
-                                </MDBNavbarLink>
-                            </MDBBtn>
-                        </MDBNavbarItem>
+                    <MDBNavbarItem>
+                        <MDBBtn className="bg-succes" type="button" size="sm" href="/login">
+                            Login <MDBIcon fas icon="sign-in-alt" />
+                        </MDBBtn>
 
-                        <MDBNavbarItem id="userCart" style={userCartStyle} className='d-flex align-items-center'>
-                            <MDBBadge
-                                color="danger"
-                                style={{ fontSize: "1rem", width: '100%', height: '2rem', borderRadius: '50%' }}
-                            >
-                                <p className='mt-1'>{cartItemsCount}</p>
-
-                            </MDBBadge>
-                            <MDBNavbarLink href='/cart'>
-                                <MDBIcon fas icon="shopping-cart" size='2x' />
-                            </MDBNavbarLink>
-                        </MDBNavbarItem>
+                        <MDBBtn className="bg-info" type="button" size="sm" href="/register">
+                            Register <MDBIcon fas icon="registered" />
+                        </MDBBtn>
                     </MDBNavbarItem>
+
+
+                    <MDBNavbarItem id="userCart" style={userCartStyle} className='d-flex align-items-center'>
+
+                        <MDBBadge
+                            color="danger"
+                            style={{ fontSize: "1rem", width: '100%', height: '2rem', borderRadius: '50%' }}
+                        >
+                            <p className='mt-1'>{cartItemsCount}</p>
+
+                        </MDBBadge>
+
+                        <MDBNavbarLink href='/cart'>
+                            <MDBIcon fas icon="shopping-cart" size='2x' />
+                        </MDBNavbarLink>
+
+                    </MDBNavbarItem>
+
                 </MDBNavbarNav>
             </MDBContainer>
         </MDBNavbar>

@@ -14,7 +14,8 @@ import {
 import logo from '../../assets/images/logos/shopping-cart-logo.png';
 import { useEffect, useState } from 'react';
 import { useLocation } from 'react-router-dom';
-import { useSelector } from 'react-redux';
+// import { useSelector } from 'react-redux';
+
 
 export default function NavbarSM() {
     const [openBasic, setOpenBasic] = useState(false);
@@ -24,13 +25,13 @@ export default function NavbarSM() {
     const [userVisitStyle, setUserVisitStyle] = useState({});
     const [userCartStyle, setUserCartStyle] = useState({});
 
-    const cartItemsLength = useSelector(state => state.cart.items.length);
+    // const cartItemsLength = useSelector(state => state.cart.items.length);
 
-    const [cartItemsCount,setCartItemsCount] = useState(cartItemsLength)
+    // const [cartItemsCount, setCartItemsCount] = useState(cartItemsLength)
 
-    useEffect(()=>{
-        setCartItemsCount(cartItemsLength)
-    },[cartItemsLength])
+    // useEffect(() => {
+    //     setCartItemsCount(cartItemsLength)
+    // }, [cartItemsLength])
 
     useEffect(() => {
         // console.log('Current location:', location.pathname);
@@ -53,77 +54,69 @@ export default function NavbarSM() {
 
     return (
         <MDBNavbar expand="lg" light bgColor="light" fixed='top'>
+
             <MDBContainer>
-                <MDBNavbarBrand href="#">
-                    <MDBNavbarLink href="/">
-                        <img src={logo} height="40" alt="" loading="lazy" />
-                    </MDBNavbarLink>
+
+                <MDBNavbarBrand href="/">
+                    <img src={logo} height="40" alt="" loading="lazy" />
                 </MDBNavbarBrand>
 
                 <MDBNavbarToggler
-                    aria-controls="navbarSupportedContent"
-                    aria-expanded={openBasic ? "true" : "false"}
-                    aria-label="Toggle navigation"
-                    onClick={() => setOpenBasic(!openBasic)}
+                    aria-controls='navbarSupportedContent'
+                    aria-expanded='false'
+                    aria-label='Toggle navigation'
+                    onClick={() => {
+                        setOpenBasic(!openBasic)
+                        console.log("Toggler clicked, current state:", openBasic);
+                    }
+                    }
                 >
-                    <MDBIcon icon="bars" fas />
+                    <MDBIcon icon='bars' fas />
                 </MDBNavbarToggler>
 
                 <MDBCollapse navbar open={openBasic}>
                     <MDBNavbarNav>
-                        <MDBNavbarItem>
-                            <MDBNavbarItem>
-                                <MDBNavbarLink active aria-current="page" href="#">
-                                    Products
-                                </MDBNavbarLink>
-                            </MDBNavbarItem>
+                        <MDBNavbarItem><MDBNavbarLink active aria-current="page" href="/">Products</MDBNavbarLink></MDBNavbarItem>
+                        <MDBNavbarItem><MDBNavbarLink href="/contactus">Contact Us</MDBNavbarLink></MDBNavbarItem>
+                        <MDBNavbarItem><MDBNavbarLink href="/about">About</MDBNavbarLink></MDBNavbarItem>
 
-                            <MDBNavbarItem>
-                                <MDBNavbarLink href="/contactus">Contact Us</MDBNavbarLink>
-                            </MDBNavbarItem>
-
-                            <MDBNavbarItem>
-                                <MDBNavbarLink href="/about">About</MDBNavbarLink>
-                            </MDBNavbarItem>
-
-                        </MDBNavbarItem>
 
                         <MDBNavbarItem id="userWelcome" style={userWelcomeStyle}>
                             <MDBNavbarLink href="#">Username</MDBNavbarLink>
                         </MDBNavbarItem>
 
+
                         <MDBNavbarItem className="d-flex justify-content-between align-items-center gap-1">
-                            <MDBNavbarItem id="userVisit" style={userVisitStyle}>
-                                <MDBBtn className="bg-succes" type="button" size='sm'>
-                                    <MDBNavbarLink href="/login" className='text-light'>
-                                        Login <MDBIcon fas icon="sign-in-alt" />
-                                    </MDBNavbarLink>
-                                </MDBBtn>
+                            <MDBBtn className="bg-succes" type="button" size='sm' href="/login">
+                                Login <MDBIcon fas icon="sign-in-alt" />
+                            </MDBBtn>
 
-                                <MDBBtn className="bg-info" type="button" size='sm'>
-                                    <MDBNavbarLink href="/register" className='text-light'>
-                                        Register <MDBIcon fas icon="registered" />
-                                    </MDBNavbarLink>
-                                </MDBBtn>
-                            </MDBNavbarItem>
-
-                            <MDBNavbarItem id="userCart" style={userCartStyle} className='d-flex justify-content-center align-items-center'>
-                                <MDBBadge
-                                    color="danger"
-                                    style={{ fontSize: '1rem', width: '100%', height: '2rem', borderRadius: '50%' }}
-                                >
-
-                                    <p className='mt-1'>{cartItemsCount}</p>
-
-                                </MDBBadge>
-                                <MDBNavbarLink href='/cart'>
-                                    <MDBIcon fas icon="shopping-cart" size='xl' />
-
-                                </MDBNavbarLink>                            </MDBNavbarItem>
+                            <MDBBtn className="bg-info" type="button" size='sm' href="/register">
+                                Register <MDBIcon fas icon="registered" />
+                            </MDBBtn>
                         </MDBNavbarItem>
+
+
+                        <MDBNavbarItem id="userCart" style={userCartStyle} className='d-flex justify-content-center align-items-center'>
+
+                            <MDBBadge
+                                color="danger"
+                                style={{ fontSize: '1rem', width: '100%', height: '2rem', borderRadius: '50%' }}
+                            >
+
+                                {/* <p className='mt-1'>{cartItemsCount}</p> */}
+
+                            </MDBBadge>
+
+                            <MDBNavbarLink href='/cart'>
+                                <MDBIcon fas icon="shopping-cart" size='xl' />
+                            </MDBNavbarLink>
+
+                        </MDBNavbarItem>
+
                     </MDBNavbarNav>
                 </MDBCollapse>
             </MDBContainer>
-        </MDBNavbar>
+        </MDBNavbar >
     );
 }

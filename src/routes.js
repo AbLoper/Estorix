@@ -1,4 +1,3 @@
-// routes.js
 import App from './App';
 import Login from './pages/login';
 import Register from './pages/register';
@@ -8,6 +7,7 @@ import About from './pages/about';
 import Checkout from './pages/checkout';
 import Product from './pages/product';
 import NotFound from './pages/notFound';
+import Test from './pages/CorrectingCode';
 
 const routes = [
     { path: "/", element: <App /> },
@@ -18,6 +18,7 @@ const routes = [
     { path: "/product", element: <Product /> },
     { path: "/checkout", element: <Checkout /> },
     { path: "/cart", element: <Cart /> },
+    { path: "/test", element: <Test /> },
     { path: "*", element: <NotFound /> },
 ];
 

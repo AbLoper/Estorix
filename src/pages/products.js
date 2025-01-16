@@ -1,7 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import StarBorderIcon from '@mui/icons-material/StarBorder';
-import ThumbUpOffAltIcon from '@mui/icons-material/ThumbUpOffAlt';
-import Styles from '../styles/products.module.css';
+import Styles from './css/products.module.css';
 import {
     MDBContainer,
     MDBRow,
@@ -42,15 +40,15 @@ const Products = () => {
             });
     }, []);
 
-    const evaluate = (rating) => {
-        const stars = [];
-        for (let i = 1; i <= 5; i++) {
-            stars.push(
-                <StarBorderIcon key={i} style={{ fontSize: 25, color: 'gold' }} />
-            );
-        }
-        return stars;
-    };
+    // const evaluate = (rating) => {
+    //     const stars = [];
+    //     for (let i = 1; i <= 5; i++) {
+    //         stars.push(
+    //             <StarBorderIcon key={i} style={{ fontSize: 25, color: 'gold' }} />
+    //         );
+    //     }
+    //     return stars;
+    // };
 
     const filterProducts = () => {
         let filteredProducts = products;
@@ -70,7 +68,7 @@ const Products = () => {
     };
 
     const navigate = useNavigate();
-    
+
     const productDetails = (product) => {
         navigate('/product', { state: { product } });
     };
@@ -105,10 +103,10 @@ const Products = () => {
                     </MDBCardBody>
                     <div className="evaluation d-flex flex-row justify-content-between align-items-end mx-3 px-2">
                         <div className="stars">
-                            {evaluate(item.rating)}
+                            {/* {evaluate(item.rating)} */}
                         </div>
                         <div className="favorite">
-                            <ThumbUpOffAltIcon style={{ fontSize: 25, color: 'red' }} />
+                            {/* <ThumbUpOffAltIcon style={{ fontSize: 25, color: 'red' }} /> */}
                         </div>
                     </div>
                     <MDBBtnGroup className='d-flex justify-content-center align-items-center p-3'>
@@ -118,7 +116,12 @@ const Products = () => {
                             Buy Now
                         </MDBBtn>
                         <MDBBtn className='me-1' color='info' outline
-                            onClick={() => dispatch(addToCart(item))}
+                            onClick={() => {
+                                const count = 1
+                                const total = count * +item.price
+
+                                dispatch(addToCart({ ...item, count, total }));
+                            }}
                         >
                             Add To Cart
                         </MDBBtn>

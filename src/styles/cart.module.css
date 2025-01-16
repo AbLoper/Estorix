@@ -1,9 +1,0 @@
-.container > * {
-  margin: 0.25rem 0;
-}
-
-@media (min-width: 768px) {
-  .productQuantity {
-    flex-wrap: nowrap;
-  }
-}

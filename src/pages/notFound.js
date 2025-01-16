@@ -1,5 +1,5 @@
 import { MDBIcon } from 'mdb-react-ui-kit'
-import Styles from '../styles/pageNotFound.module.css'
+import Styles from './css/pageNotFound.module.css'
 export default function notFound() {
     return (
         <div className={Styles.errorMsg}>
