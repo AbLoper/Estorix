@@ -2,12 +2,12 @@ import React, { useState, useEffect } from 'react';
 import NavbarSM from './NavbarSM';
 import NavbarLG from './NavbarLG';
 
-const NavbarApp = () => {
+export default function Navbar() {
     const [isSmallScreen, setIsSmallScreen] = useState(false);
 
     useEffect(() => {
         const checkScreenSize = () => {
-            setIsSmallScreen(window.innerWidth <= 992); 
+            setIsSmallScreen(window.innerWidth <= 992);
         };
 
         checkScreenSize();
@@ -19,5 +19,3 @@ const NavbarApp = () => {
 
     return isSmallScreen ? <NavbarSM /> : <NavbarLG />;
 };
-
-export default NavbarApp;

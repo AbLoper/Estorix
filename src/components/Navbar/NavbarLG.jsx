@@ -11,18 +11,14 @@ import {
     MDBDropdownToggle,
     MDBDropdownMenu,
     MDBDropdownItem,
-    MDBCollapse,
 } from 'mdb-react-ui-kit';
 
 export default function NavbarLG() {
-
 
     return (
         <MDBNavbar expand='lg' light bgColor='light'>
             <MDBContainer fluid>
                 <MDBNavbarBrand href='#'>Brand</MDBNavbarBrand>
-
-
 
                 <MDBNavbarNav className='mr-auto mb-2 mb-lg-0'>
                     <MDBNavbarItem>
