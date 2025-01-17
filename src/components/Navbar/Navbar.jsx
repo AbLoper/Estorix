@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
-import NavbarSM from './NavbarSM';
-import NavbarLG from './NavbarLG';
+import NavbarSM from './NavbarLG';
+import NavbarLG from './NavbarSM';
 
 export default function Navbar() {
     const [isSmallScreen, setIsSmallScreen] = useState(false);
