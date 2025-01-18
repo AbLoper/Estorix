@@ -1,5 +1,8 @@
 import React, { useEffect, useState } from 'react';
 import Styles from './css/products.module.css';
+// import { FaRegStar } from "react-icons/fa";
+// import { BiDislike } from "react-icons/bi";
+// import { BiLike } from "react-icons/bi";
 import {
     MDBContainer,
     MDBRow,
@@ -17,6 +20,8 @@ import axios from 'axios';
 import { useNavigate } from 'react-router';
 import { addToCart, removeFromCart } from '../reduxToolkit/slices/cartSlice';
 import { useDispatch } from 'react-redux';
+import ProductRating from '../components/product/ProductRating';
+import ProductLiking from '../components/product/ProductLiking';
 
 const Products = () => {
     const [products, setProducts] = useState([]);
@@ -40,18 +45,10 @@ const Products = () => {
             });
     }, []);
 
-    // const evaluate = (rating) => {
-    //     const stars = [];
-    //     for (let i = 1; i <= 5; i++) {
-    //         stars.push(
-    //             <StarBorderIcon key={i} style={{ fontSize: 25, color: 'gold' }} />
-    //         );
-    //     }
-    //     return stars;
-    // };
+
 
     const filterProducts = () => {
-        let filteredProducts = products;
+        let filteredProducts = products
 
         if (categoryFilter !== 'All') {
             filteredProducts = filteredProducts.filter(item => item.category === categoryFilter);
@@ -101,12 +98,12 @@ const Products = () => {
                         </MDBCardText>
                         <p>{item.price}$</p>
                     </MDBCardBody>
-                    <div className="evaluation d-flex flex-row justify-content-between align-items-end mx-3 px-2">
+                    <div className="rating d-flex flex-row justify-content-between align-items-end mx-3 px-2">
                         <div className="stars">
-                            {/* {evaluate(item.rating)} */}
+                            <ProductRating rate='4' />
                         </div>
-                        <div className="favorite">
-                            {/* <ThumbUpOffAltIcon style={{ fontSize: 25, color: 'red' }} /> */}
+                        <div className="liking">
+                            <ProductLiking />
                         </div>
                     </div>
                     <MDBBtnGroup className='d-flex justify-content-center align-items-center p-3'>

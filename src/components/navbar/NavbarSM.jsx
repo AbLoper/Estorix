@@ -10,7 +10,6 @@ import {
     MDBBtn,
     MDBCollapse,
     MDBBadge,
-    MDBBtnGroup,
 } from 'mdb-react-ui-kit';
 import logo from '../../assets/images/logos/shopping-cart-logo.png';
 import React, { useEffect, useState } from 'react';
