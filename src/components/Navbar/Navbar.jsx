@@ -13,7 +13,7 @@ import {
     MDBInputGroup
 } from 'mdb-react-ui-kit';
 
-export default function App() {
+export default function NavbarApp() {
     const [openNavNoTogglerSecond, setOpenNavNoTogglerSecond] = useState(false);
 
     return (
