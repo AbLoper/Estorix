@@ -2,11 +2,12 @@ import { MDBBtn, MDBBtnGroup, MDBCardBody, MDBCardText, MDBCardTitle, MDBCol, MD
 import Styles from './cart.module.css'
 import { useDispatch, useSelector } from "react-redux";
 import { removeFromCart } from "../../reduxToolkit/slices/cartSlice";
+import { useState } from "react";
 
 export default function Cart() {
-    const dispatch = useDispatch()
 
-    const cartItems = useSelector(state => state.cart.items)
+    const [cartItems, setCartItems] = useState(useSelector(state => state.cart.items))
+    const dispatch = useDispatch()
     console.log(cartItems);
 
     return (

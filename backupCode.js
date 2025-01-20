@@ -16,54 +16,36 @@ import {
 import axios from 'axios';
 import { useNavigate } from 'react-router';
 import { addToCart, removeFromCart } from '../../reduxToolkit/slices/cartSlice';
-import { useDispatch, useSelector } from 'react-redux';
+import { useDispatch } from 'react-redux';
 import ProductRating from '../../components/product/ProductRating';
 import ProductLiking from '../../components/product/ProductLiking';
 
 const Products = () => {
-    const getStateItems = useSelector(state => state.cart.items)
-    const [stateItems, setStateItems] = useState([])
-
     const [products, setProducts] = useState([]);
     const [loading, setLoading] = useState(true);
     const [error, setError] = useState(null);
     const [categoryFilter, setCategoryFilter] = useState('All');
     const [searchQuery, setSearchQuery] = useState('');
+
     const dispatch = useDispatch();
 
     useEffect(() => {
         axios
             .get('https://fakestoreapi.com/products')
             .then((response) => {
-                const count = 1;
-                const updateResponse = response.data.map((item) => {
-                    return {
-                        ...item,
-                        count: count,
-                        total: count * +item.price,
-                        added: false
-                    }
-                });
-                setProducts(updateResponse);
+                setProducts(response.data);
                 setLoading(false);
             })
             .catch((err) => {
                 setError('Error Fetching Data');
                 setLoading(false);
             });
-
     }, []);
 
-    const btnStyleSet = (value) => {
-        setStateItems(prevState => {
-            const updatedItems = [...prevState, value];
-            console.log('updatedItems', updatedItems); // ستتمكن من رؤية القيمة بعد التحديث هنا
-            return updatedItems;
-        });
-    };
+
 
     const filterProducts = () => {
-        let filteredProducts = products;
+        let filteredProducts = products
 
         if (categoryFilter !== 'All') {
             filteredProducts = filteredProducts.filter(item => item.category === categoryFilter);
@@ -122,15 +104,17 @@ const Products = () => {
                         </div>
                     </div>
                     <MDBBtnGroup className='d-flex justify-content-center align-items-center p-3'>
-                        <MDBBtn className='me-1' color='success' outline
+                        <MDBBtn className='me-1' color='secondary' outline
                             onClick={() => dispatch(removeFromCart(item))}
                         >
                             Buy Now
                         </MDBBtn>
-                        <MDBBtn className='me-1' color='' outline
+                        <MDBBtn className='me-1' color='info' outline
                             onClick={() => {
-                                btnStyleSet(item)
-                                dispatch(addToCart({ ...item }));
+                                const count = 1
+                                const total = count * +item.price
+
+                                dispatch(addToCart({ ...item, count, total }));
                             }}
                         >
                             Add To Cart

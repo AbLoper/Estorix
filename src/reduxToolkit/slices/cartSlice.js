@@ -8,8 +8,8 @@ export const cartSlice = createSlice({
     reducers: {
         addToCart: (state, action) => {
             state.items = [...state.items, action.payload]
-            console.log('item added: ', action.payload);
-            console.log('cart items: ', state.items);
+            // console.log('item added: ', action.payload);
+            // console.log('cart items: ', state.items);
         },
         removeFromCart: (state, action) => {
             state.items = state.items.filter(item => item.id !== action.payload);

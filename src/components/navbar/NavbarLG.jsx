@@ -76,16 +76,16 @@ export default function NavbarLG() {
                     <MDBNavbarItem style={userVisitStyle}>
                         <div className='d-flex align-items-center gap-1'>
                             <MDBBtn href='/login' outline rounded color="primary" size='sm' type='button'>
-                                Login
+                                Login <MDBIcon fas icon="sign-in-alt" />
                             </MDBBtn>
                             <MDBBtn href='/register' outline rounded color="secondary" size="sm" type='button'>
-                                Register
+                                Register <MDBIcon fas icon="user-plus" />
                             </MDBBtn>
                         </div>
                     </MDBNavbarItem>
 
                     <MDBNavbarItem style={userCartStyle}>
-                        <MDBNavbarLink href='#'>
+                        <MDBNavbarLink href='/cart'>
                             <MDBBadge pill color='danger'>
                                 {cartItemsCount}
                             </MDBBadge>

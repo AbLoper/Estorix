@@ -33,7 +33,7 @@ export default function Login() {
                 <MDBRow >
 
                     <MDBCol md={6} className='p-4' >
-                        <MDBCardImage style={{ maxHeight: '75vh' }} src={assets.LoginPic} alt="login form" className='rounded-start w-100' />
+                        <MDBCardImage style={{ maxHeight: '75vh' }} src={assets.identifies.LoginPic} alt="login form" className='rounded-start w-100' />
                     </MDBCol>
 
                     <MDBCol md={6}>
@@ -46,8 +46,8 @@ export default function Login() {
 
                             <h5 className="fw-normal my-4 pb-3" style={{ letterSpacing: '1px' }}>Sign into your account</h5>
 
-                            <MDBInput wrapperClass='mb-4' label='Email address' id='formControlLg' type='email' size="lg" />
-                            <MDBInput wrapperClass='mb-4' label='Password' id='formControlLg' type='password' size="lg" />
+                            <MDBInput wrapperClass='mb-4' label='Email address' id='formControlLgemail' type='email' size="lg" />
+                            <MDBInput wrapperClass='mb-4' label='Password' id='formControlLgpassword' type='password' size="lg" />
 
                             <MDBBtn className="mb-4 px-5" color='dark' size='lg'>Login</MDBBtn>
                             <a className="small text-muted text-center" href="#!">Forgot password?</a>

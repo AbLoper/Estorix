@@ -98,7 +98,7 @@ export default function NavbarSM() {
                         </MDBNavbarItem>
 
                         <MDBNavbarItem style={userCartStyle}>
-                            <MDBNavbarLink href='#'>
+                            <MDBNavbarLink href='/cart'>
                                 <MDBBadge pill color='danger'>
                                     {cartItemsCount}
                                 </MDBBadge>

@@ -6,7 +6,9 @@ import {
     MDBInput,
     MDBCol,
     MDBRow,
-    MDBBtn
+    MDBBtn,
+    MDBNavbar,
+    MDBNavbarLink
 } from 'mdb-react-ui-kit';
 
 export default function Footer() {
@@ -174,12 +176,12 @@ export default function Footer() {
                 </section>
             </MDBContainer>
 
-            <div className='text-center p-3 text-dark' style={{ backgroundColor: 'rgba(0, 0, 0, 0.2)' }}>
+            <MDBNavbar className='text-center p-3 text-dark justify-content-center' style={{ backgroundColor: 'rgba(0, 0, 0, 0.2)' }}>
                 © 2025 Copyright:&nbsp;
-                <a className='text-white' href='https://mdbootstrap.com/'>
-                    &nbsp;AbedSlayman.com
-                </a>
-            </div>
+                <MDBNavbarLink className='text-white' href='https://abloper.com/'>
+                    &nbsp;AbLoper.com
+                </MDBNavbarLink>
+            </MDBNavbar>
         </MDBFooter>
     );
 }
