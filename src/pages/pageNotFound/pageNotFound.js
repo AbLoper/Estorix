@@ -1,6 +1,6 @@
 import { MDBIcon } from 'mdb-react-ui-kit'
-import Styles from './css/pageNotFound.module.css'
-export default function notFound() {
+import Styles from './pageNotFound.module.css'
+export default function PageNotFound() {
     return (
         <div className={Styles.errorMsg}>
             <MDBIcon icon="fa-solid fa-triangle-exclamation" size='10x' style={{ color: "#FFD43B"}} />

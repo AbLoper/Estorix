@@ -11,7 +11,7 @@ import {
     MDBCollapse,
     MDBBadge,
 } from 'mdb-react-ui-kit';
-import logo from '../../assets/images/logos/shopping-cart-logo.png';
+import assets from '../../assets';
 import React, { useEffect, useState } from 'react';
 import { useLocation } from 'react-router-dom';
 import { useSelector } from 'react-redux';
@@ -51,7 +51,7 @@ export default function NavbarSM() {
         <MDBNavbar expand='lg' light bgColor='light'>
             <MDBContainer fluid>
                 <MDBNavbarBrand href="/">
-                    <img src={logo} height="40" alt="" loading="lazy" />
+                    <img src={assets.logos.LogoApp} height="40" alt="" loading="lazy" />
                 </MDBNavbarBrand>
 
                 <MDBNavbarToggler
@@ -97,7 +97,7 @@ export default function NavbarSM() {
                             </div>
                         </MDBNavbarItem>
 
-                        <MDBNavbarItem style={userCartStyle} className='d-flex justify-content-center align-items-center'>
+                        <MDBNavbarItem style={userCartStyle}>
                             <MDBNavbarLink href='#'>
                                 <MDBBadge pill color='danger'>
                                     {cartItemsCount}

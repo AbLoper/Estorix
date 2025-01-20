@@ -1,6 +1,6 @@
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
-import LoginPic from '../assets/images/login/login.webp'
+import assets from '../../assets';
 
 import {
     MDBBtn,
@@ -33,7 +33,7 @@ export default function Login() {
                 <MDBRow >
 
                     <MDBCol md={6} className='p-4' >
-                        <MDBCardImage style={{ maxHeight: '75vh' }} src={LoginPic} alt="login form" className='rounded-start w-100' />
+                        <MDBCardImage style={{ maxHeight: '75vh' }} src={assets.LoginPic} alt="login form" className='rounded-start w-100' />
                     </MDBCol>
 
                     <MDBCol md={6}>

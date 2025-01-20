@@ -10,7 +10,7 @@ import {
     MDBBtn,
     MDBBadge,
 } from 'mdb-react-ui-kit';
-import logo from '../../assets/images/logos/shopping-cart-logo.png';
+import assets from '../../assets';
 import { useEffect, useState } from 'react';
 import { useLocation } from 'react-router-dom';
 import { useSelector } from 'react-redux';
@@ -46,7 +46,7 @@ export default function NavbarLG() {
             <MDBContainer>
 
                 <MDBNavbarBrand href="/">
-                    <img src={logo} height="40" alt="" loading="lazy" />
+                    <img src={assets.logos.LogoApp} height="40" alt="" loading="lazy" />
                 </MDBNavbarBrand>
 
                 <MDBNavbarNav className='mr-auto mb-2 mb-lg-0'>

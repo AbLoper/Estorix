@@ -1,10 +1,10 @@
 import { MDBBtn, MDBBtnGroup, MDBCardBody, MDBCardImage, MDBCardText, MDBCardTitle, MDBCol, MDBContainer, MDBIcon, MDBRow } from 'mdb-react-ui-kit';
-import Styles from './css/product.module.css';
+import Styles from './product.module.css';
 import { useLocation, useNavigate } from 'react-router-dom';
-import { removeFromCart } from '../reduxToolkit/slices/cartSlice';
+import { removeFromCart } from '../../reduxToolkit/slices/cartSlice';
 import { useDispatch } from 'react-redux';
-import ProductRating from '../components/product/ProductRating';
-import ProductLiking from '../components/product/ProductLiking';
+import ProductRating from '../../components/product/ProductRating';
+import ProductLiking from '../../components/product/ProductLiking';
 
 export default function Product() {
   const location = useLocation();

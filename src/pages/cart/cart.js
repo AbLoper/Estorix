@@ -1,7 +1,7 @@
 import { MDBBtn, MDBBtnGroup, MDBCardBody, MDBCardText, MDBCardTitle, MDBCol, MDBContainer, MDBIcon, MDBRow } from "mdb-react-ui-kit";
-import Styles from './css/cart.module.css'
+import Styles from './cart.module.css'
 import { useDispatch, useSelector } from "react-redux";
-import { removeFromCart } from "../reduxToolkit/slices/cartSlice";
+import { removeFromCart } from "../../reduxToolkit/slices/cartSlice";
 
 export default function Cart() {
     const dispatch = useDispatch()

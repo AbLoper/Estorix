@@ -1,15 +1,15 @@
-import JumbotronImage from "../assets/images/jumbotron/bg.jpg"
+import assets from '../../assets';
 
 export default function Jumbotron() {
 
     return (
-        <header className='p-1 pt-2'>
+        <header style={{ marginTop: "4.3rem", padding: ".5rem" }}>
             {<div
-                className='p-5 text-center bg-image img-thumbnail'
+                className='text-center bg-image img-thumbnail'
                 style={{
-                    backgroundImage: `url(${JumbotronImage})`,
+                    backgroundImage: `url(${assets.identifies.JumbotronImage})`,
                     height: '30rem',
-                    // marginTop:"4rem"
+                    // marginTop:"5rem"
                 }}
             >
                 <div className='mask' style={{ backgroundColor: 'rgba(0, 0, 0, 0.6)' }}>

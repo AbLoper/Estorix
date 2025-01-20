@@ -1,8 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import Styles from './css/products.module.css';
-// import { FaRegStar } from "react-icons/fa";
-// import { BiDislike } from "react-icons/bi";
-// import { BiLike } from "react-icons/bi";
+import Styles from './products.module.css';
 import {
     MDBContainer,
     MDBRow,
@@ -18,10 +15,10 @@ import {
 } from 'mdb-react-ui-kit';
 import axios from 'axios';
 import { useNavigate } from 'react-router';
-import { addToCart, removeFromCart } from '../reduxToolkit/slices/cartSlice';
+import { addToCart, removeFromCart } from '../../reduxToolkit/slices/cartSlice';
 import { useDispatch } from 'react-redux';
-import ProductRating from '../components/product/ProductRating';
-import ProductLiking from '../components/product/ProductLiking';
+import ProductRating from '../../components/product/ProductRating';
+import ProductLiking from '../../components/product/ProductLiking';
 
 const Products = () => {
     const [products, setProducts] = useState([]);
