@@ -1,14 +1,14 @@
 import Footer from "./components/Footer";
-import UnderConstrution from "./components/underConstrucion/UnderConstrution"
 import Products from "./pages/products";
 import ScrollToTopButton from './components/ScrollToTopButton';
 import Jumbotron from './components/Jumbotron';
+import UnderConstruction from "./components/underConstruction/UnderConstruction";
 
 function App() {
   return (
     <>
+    <UnderConstruction />
       <Jumbotron />
-      <UnderConstrution />
       <Products />
       <Footer />
       <ScrollToTopButton />

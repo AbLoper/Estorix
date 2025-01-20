@@ -1,6 +1,6 @@
-import Styles from './css/underConstruction.module.css'
+import Styles from './underConstruction.module.css'
 
-export default function UnderConstrution() {
+export default function UnderConstruction() {
     return (
         <div className='d-flex justify-content-evenly align-items-center'>
             {/* <HandymanIcon style={{ fontSize: 35, color: 'bluelight' }} /> */}
