@@ -36,11 +36,7 @@ export default function NavbarLG() {
             setUserCartStyle({ display: 'none' });
         } else {
             // setUserWelcomeStyle({ display: 'flex' });
-            setUserVisitStyle({
-                display: 'flex',
-                // justifyContent: 'center',
-                // alignItems: 'center',
-            });
+            setUserVisitStyle({display: 'flex'});
             setUserCartStyle({ display: 'flex' });
         }
     }, [location]);
@@ -88,7 +84,7 @@ export default function NavbarLG() {
                         </div>
                     </MDBNavbarItem>
 
-                    <MDBNavbarItem style={userCartStyle} className='d-flex justify-content-center align-items-center'>
+                    <MDBNavbarItem style={userCartStyle}>
                         <MDBNavbarLink href='#'>
                             <MDBBadge pill color='danger'>
                                 {cartItemsCount}
