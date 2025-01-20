@@ -22,18 +22,16 @@ export default function Product() {
   }
 
   return (
-    <MDBContainer fluid className={Styles.container}>
-      <MDBRow className={`${Styles.shadowBorder} bg-light d-flex flex-row justify-content-center align-items-center p-3`}>
-        <MDBCol md="6" className="d-flex justify-content-center align-items-center">
+    <MDBContainer fluid>
+      <MDBRow className='d-flex flex-row justify-content-center align-items-center p-3' style={{ height: "90vh", marginTop: '10vh' }}>
+        <MDBCol md="6" className="d-flex justify-content-center align-items-center" style={{ height: '100%' }}>
           {item.image ? (
             <MDBCardImage
-              className={`${Styles.itemImage} ${Styles.shadowBorder}`}
+              className="p-5"
               src={item.image}
               alt="..."
               position="top"
-              style={{
-                padding: "1rem",
-              }}
+              style={{ height: '100%' }}
             />
           ) : (
             <div>Image not available</div>
@@ -47,13 +45,13 @@ export default function Product() {
             <MDBCardText className={Styles.cardText}>{item.description}</MDBCardText>
             <p>{item.price}$</p>
             <div className="rating d-flex flex-row justify-content-between align-items-end">
-                        <div className="stars">
-                            <ProductRating rate='4' />
-                        </div>
-                        <div className="liking">
-                            <ProductLiking />
-                        </div>
-                    </div>
+              <div className="stars">
+                <ProductRating rate='4' />
+              </div>
+              <div className="liking">
+                <ProductLiking />
+              </div>
+            </div>
             <MDBBtnGroup shadow="0" aria-label="Basic example" size="sm" className={`${Styles.btnGroup} w-100 gap-1`}>
               <MDBBtn color="secondary" outline
                 onClick={() => dispatch(removeFromCart(item))}

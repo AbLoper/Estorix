@@ -1,29 +1,4 @@
-.shadowBorder {
-  border: 2px solid #c1c1c2;
-  border-radius: 8px;
-  box-shadow: 5px 4px 6px rgba(0, 0, 0, 0.5);
-  transition: 1s;
-  cursor: pointer;
-}
-
-.container {
-  margin-top: 8rem;
-  margin-bottom: 1rem;
-  width: 90vw;
-}
-
 .cardText {
   overflow-y: auto;
   max-height: 9rem;
-}
-
-/* Laptops */
-@media (min-width: 600px) {
-  .itemImage {
-    max-height: 80vh;
-    max-width: 95%;
-  }
-  .container{
-    margin-top: 4rem;
-  }
 }

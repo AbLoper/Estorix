@@ -148,7 +148,7 @@ const Products = () => {
     const categories = products.length > 0 ? ['All', ...new Set(products.map(product => product.category))] : ['All'];
 
     return (
-        <MDBContainer className='mb-4'>
+        <MDBContainer fluid className='mb-4'>
             <MDBInputGroup tag='form' onSubmit={(e) => e.preventDefault()}>
                 <input
                     className='form-control'

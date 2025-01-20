@@ -36,7 +36,7 @@ export default function NavbarLG() {
             setUserCartStyle({ display: 'none' });
         } else {
             // setUserWelcomeStyle({ display: 'flex' });
-            setUserVisitStyle({display: 'flex'});
+            setUserVisitStyle({ display: 'flex' });
             setUserCartStyle({ display: 'flex' });
         }
     }, [location]);

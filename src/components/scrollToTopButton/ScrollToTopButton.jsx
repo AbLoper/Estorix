@@ -22,9 +22,9 @@ const ScrollToTopButton = () => {
 
     const scrollToTop = () => {
         gsap.to(window, {
-            duration: 2,
+            duration: 1,
             scrollTo: { y: 0 },
-            ease: 'linear',
+            ease: 'power2.inOut',
         });
     };
 
