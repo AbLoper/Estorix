@@ -1,31 +1,17 @@
 /* Extra small devices (xs) (phones, 575px and down) */
 @media (max-width: 576px) {
-  #cardImage {
-    /* width: 100%; */
-    /* margin-top: 30vh; */
-  }
 }
 
 /* Small devices (sm) (portrait tablets and large phones, 576px and up) */
-@media (min-width: 577px) and (max-width: 768px) {
-    #cardImage {
-        /* width: 100%; */
-        /* margin-top: 12vh; */
-    }
+@media (min-width: 576px) {
 }
 
 /* Medium devices (md) (landscape tablets, 768px and up) */
 @media (min-width: 768px) {
-    #cardImage {
-        /* width: 100%; */
-        /* margin-top: 10vh; */
-        /* border: 1px solid #000; */
-  }
 }
 
 /* Large devices (lg) (laptops/desktops, 992px and up) */
 @media (min-width: 992px) {
-
 }
 
 /* Extra large devices (xl) (Extra large laptops and desktops, 1200px and up) */
@@ -34,14 +20,4 @@
 
 /* Extra extra large devices (xxl) (Extra extra large screens, 1400px and up) */
 @media (min-width: 1400px) {
-}
-
-
-#row{
-    border: 1px solid #000;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    position: absolute;
-    width: 90%;
 }

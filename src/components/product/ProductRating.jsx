@@ -6,7 +6,7 @@ const ProductRating = (props) => {
     return (
         <div>
             {[...Array(rate)].map((_, index) => (
-                <span key={index}><FaRegStar /></span>
+                <span key={index} style={{fontSize:"30"}}><FaRegStar /></span>
             ))}
         </div>
     );
