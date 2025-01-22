@@ -9,7 +9,8 @@ import {
   MDBRow,
   MDBCol,
   MDBBtnGroup,
-  MDBIcon
+  MDBIcon,
+  MDBCard
 } from 'mdb-react-ui-kit';
 import Styles from './product.module.css';
 import { useLocation, useNavigate } from 'react-router-dom';
@@ -33,28 +34,39 @@ export default function Product() {
     navigate(-1);
   }
   return (
-    <MDBContainer className='d-flex align-items-center'>
-      <MDBRow className='d-flex justify-content-center align-items-center' id={Styles.row}>
-        <MDBCol sm={12} md={6} className='d-flex justify-content-center align-items-center'>
+    <MDBContainer>
+      <MDBRow id={Styles.row} className='d-flex justify-content-center align-items-center align-items-stretch gap-5 mb-3'>
+        <MDBCol xs='12' lg='6' className='d-flex justify-content-center align-items-center'>
           {item.image ? (
-            <MDBCardImage id={Styles.cardImage}
-              src={item.image}
-              alt="..."
-              position="top"
-            />
+            <MDBCard id={Styles.card} className='d-flex justify-content-center align-items-center'>
+              <MDBCardImage
+              id={Styles.cardImage}
+                src={item.image}
+                alt="..."
+                position="top"
+                style={{
+                  objectFit: 'contain',
+                  // width: '100%',
+                  height:'85vh',
+                  padding: '1rem'
+                }}
+              />
+            </MDBCard>
           ) : (
             <div>Image not available</div>
           )}
         </MDBCol>
-        <MDBCol sm={12} md={6} className='d-flex justify-content-center align-items-center'>
-          <MDBCardBody className={Styles.cardBody}>
+        <MDBCol className='d-flex justify-content-center align-items-center'>
+          <MDBCardBody>
             <MDBCardText>{item.category}</MDBCardText>
-            <MDBCardTitle>{item.title}</MDBCardTitle>
-            <MDBCardText>{item.description}</MDBCardText>
-            <p>{item.price}$</p>
-            <div className="rating d-flex flex-row justify-content-between align-items-center my-3">
+            <MDBCardTitle><strong>{item.title}</strong></MDBCardTitle>
+            <MDBCardText id={Styles.description} className='my-3'>{item.description}</MDBCardText>
+            <MDBCardText className='my-5'>
+              <strong>{item.price}$</strong>
+            </MDBCardText>
+            <div className="rating d-flex flex-row justify-content-between align-items-center my-2">
               <div className="stars">
-                <ProductRating rate='4' />
+                <ProductRating rate='5' />
               </div>
               <div className="liking">
                 <ProductLiking />
@@ -73,4 +85,4 @@ export default function Product() {
       </MDBRow>
     </MDBContainer>
   )
-}   // جعل الصورة تأخذ كامل عرض الـ MDBCol
+}

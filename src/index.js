@@ -15,8 +15,8 @@ root.render(
     <BrowserRouter future={{ v7_relativeSplatPath: true, v7_startTransition: true }}>
       <Navbar />
       <Routes>        {routes.map((route, index) => (
-          <Route key={index} path={route.path} element={route.element} />
-        ))}
+        <Route key={index} path={route.path} element={route.element} />
+      ))}
       </Routes>
     </BrowserRouter>
   </Provider>

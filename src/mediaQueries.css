@@ -1,23 +1,41 @@
 /* Extra small devices (xs) (phones, 575px and down) */
 @media (max-width: 576px) {
+    body{
+        background-color: blue;
+    }
 }
 
 /* Small devices (sm) (portrait tablets and large phones, 576px and up) */
 @media (min-width: 576px) {
+    body{
+        background-color: green;
+    }
 }
 
 /* Medium devices (md) (landscape tablets, 768px and up) */
 @media (min-width: 768px) {
+    body{
+        background-color: red;
+    }
 }
 
 /* Large devices (lg) (laptops/desktops, 992px and up) */
 @media (min-width: 992px) {
+    body{
+        background-color: yellow;
+    }
 }
 
 /* Extra large devices (xl) (Extra large laptops and desktops, 1200px and up) */
 @media (min-width: 1200px) {
+    body{
+        background-color: orange;
+    }
 }
 
 /* Extra extra large devices (xxl) (Extra extra large screens, 1400px and up) */
 @media (min-width: 1400px) {
+    body{
+        background-color: pink;
+    }
 }

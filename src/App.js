@@ -4,7 +4,6 @@ import Products from "./pages/products/products"
 import Footer from "./components/footer/Footer";
 import ScrollToTopButton from "./components/scrollToTopButton/ScrollToTopButton";
 
-
 function App() {
   return (
     <>
