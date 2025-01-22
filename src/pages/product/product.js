@@ -35,7 +35,7 @@ export default function Product() {
   }
   return (
     <MDBContainer>
-      <MDBRow id={Styles.row} className='d-flex justify-content-center align-items-center align-items-stretch gap-5 mb-3'>
+      <MDBRow id={Styles.row} className='d-flex justify-content-center align-items-center align-items-stretch gap-4 mb-3'>
         <MDBCol xs='12' lg='6' className='d-flex justify-content-center align-items-center'>
           {item.image ? (
             <MDBCard id={Styles.card} className='d-flex justify-content-center align-items-center'>
@@ -44,12 +44,6 @@ export default function Product() {
                 src={item.image}
                 alt="..."
                 position="top"
-                style={{
-                  objectFit: 'contain',
-                  // width: '100%',
-                  // height:'70vh',
-                  padding: '1rem'
-                }}
               />
             </MDBCard>
           ) : (
