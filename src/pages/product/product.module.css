@@ -24,10 +24,11 @@
 
 #row {
   margin-top: 12vh;
+
 }
 
 #description {
-  width: 90%;
+  height: 10rem;
   overflow-y: auto;
   padding: 1rem;
 }
