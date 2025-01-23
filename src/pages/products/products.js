@@ -16,13 +16,13 @@ import {
 import axios from 'axios';
 import { useNavigate } from 'react-router';
 import { addToCart, removeFromCart } from '../../reduxToolkit/slices/cartSlice';
-import { useDispatch, useSelector } from 'react-redux';
+import { useDispatch } from 'react-redux';
 import ProductRating from '../../components/product/ProductRating';
 import ProductLiking from '../../components/product/ProductLiking';
 
 const Products = () => {
-    const getStateItems = useSelector(state => state.cart.items)
-    const [stateItems, setStateItems] = useState([])
+    // const getStateItems = useSelector(state => state.cart.items)
+    // const [stateItems, setStateItems] = useState([])
 
     const [products, setProducts] = useState([]);
     const [loading, setLoading] = useState(true);
@@ -54,13 +54,12 @@ const Products = () => {
 
     }, []);
 
-    const btnStyleSet = (value) => {
-        setStateItems(prevState => {
-            const updatedItems = [...prevState, value];
-            console.log('updatedItems', updatedItems);
-            return updatedItems;
-        });
-    };
+    // const btnStyleSet = (value) => {
+    //     setStateItems(prevState => {
+    //         const updatedItems = [...prevState, value];
+    //         return updatedItems;
+    //     });
+    // };
 
     const filterProducts = () => {
         let filteredProducts = products;
@@ -84,6 +83,15 @@ const Products = () => {
     const productDetails = (product) => {
         navigate('/product', { state: { product } });
     };
+
+    // عند إضافة المنتج إلى السلة:
+const handleAddToCart = (item) => {
+    // التحقق من أن item لا يحتوي على دوال أو مراجع غير قابلة للتسلسل
+    const serializableItem = JSON.parse(JSON.stringify(item)); // تحويل الكائن إلى JSON ثم إعادته إلى كائن
+
+    dispatch(addToCart(serializableItem));
+};
+
 
     const mapProducts = () => {
         return filterProducts().map((item) => (
@@ -123,17 +131,17 @@ const Products = () => {
                     </div>
                     <MDBBtnGroup className='d-flex justify-content-center align-items-center p-3'>
                         <MDBBtn className='me-1' color='success' outline
-                            onClick={() => dispatch(removeFromCart(item))}
-                        >
-                            Buy Now
-                        </MDBBtn>
-                        <MDBBtn className='me-1' color='' outline
                             onClick={() => {
-                                btnStyleSet(item)
-                                dispatch(addToCart({ ...item }));
+                                // btnStyleSet(item)
+                                handleAddToCart(item); // استخدام الطريقة الجديدة
                             }}
                         >
                             Add To Cart
+                        </MDBBtn>
+                        <MDBBtn className='me-1' color='' outline
+                            onClick={() => dispatch(removeFromCart(item))}
+                        >
+                            Buy Now
                         </MDBBtn>
                     </MDBBtnGroup>
                 </MDBCard>

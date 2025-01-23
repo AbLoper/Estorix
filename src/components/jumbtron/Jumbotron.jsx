@@ -9,7 +9,6 @@ export default function Jumbotron() {
                 style={{
                     backgroundImage: `url(${assets.identifies.JumbotronImage})`,
                     height: '30rem',
-                    // marginTop:"5rem"
                 }}
             >
                 <div className='mask' style={{ backgroundColor: 'rgba(0, 0, 0, 0.6)' }}>
@@ -20,7 +19,6 @@ export default function Jumbotron() {
                                 Welcome to our store! Discover a wide range of high-quality products at competetive prices,all in one place. Enjoy e seamless
                                 shopping experience with fast delivery and exclusive deals.
                             </p>
-
                         </div>
                     </div>
                 </div>
