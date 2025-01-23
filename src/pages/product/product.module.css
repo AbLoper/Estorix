@@ -1,30 +1,23 @@
 /* Extra small devices (xs) (phones, 575px and down) */
-@media (max-width: 576px) {
-}
+@media (max-width: 576px) {}
 
 /* Small devices (sm) (portrait tablets and large phones, 576px and up) */
-@media (min-width: 577px) {
-}
+@media (min-width: 577px) {}
 
 /* Medium devices (md) (landscape tablets, 768px and up) */
-@media (min-width: 768px) {
-}
+@media (min-width: 768px) {}
 
 /* Large devices (lg) (laptops/desktops, 992px and up) */
-@media (min-width: 992px) {
-}
+@media (min-width: 992px) {}
 
 /* Extra large devices (xl) (Extra large laptops and desktops, 1200px and up) */
-@media (min-width: 1200px) {
-}
+@media (min-width: 1200px) {}
 
 /* Extra extra large devices (xxl) (Extra extra large screens, 1400px and up) */
-@media (min-width: 1400px) {
-}
+@media (min-width: 1400px) {}
 
 #row {
-  margin-top: 12vh;
-
+  margin-top: 15vh;
 }
 
 #description {
@@ -36,4 +29,10 @@
 #card {
   border: 2px solid #c1c1c2;
   box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.5);
+}
+
+#cardImage {
+  object-fit: contain;
+  padding: 1rem;
+  max-height:80vh
 }

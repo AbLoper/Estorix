@@ -57,7 +57,7 @@ const Products = () => {
     const btnStyleSet = (value) => {
         setStateItems(prevState => {
             const updatedItems = [...prevState, value];
-            console.log('updatedItems', updatedItems); // ستتمكن من رؤية القيمة بعد التحديث هنا
+            console.log('updatedItems', updatedItems);
             return updatedItems;
         });
     };
