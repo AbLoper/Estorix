@@ -1,0 +1,9 @@
+#container{
+    margin-top: 11vh;
+}
+
+#cardImage {
+    object-fit: contain;
+    padding: 1rem;
+    max-height:20vh
+  }
