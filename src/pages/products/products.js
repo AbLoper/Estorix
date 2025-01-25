@@ -12,6 +12,7 @@ import {
     MDBCardTitle,
     MDBCardText,
     MDBBtnGroup,
+    MDBIcon,
 } from 'mdb-react-ui-kit';
 import axios from 'axios';
 import { useNavigate } from 'react-router';
@@ -85,18 +86,18 @@ const Products = () => {
     };
 
     // عند إضافة المنتج إلى السلة:
-const handleAddToCart = (item) => {
-    // التحقق من أن item لا يحتوي على دوال أو مراجع غير قابلة للتسلسل
-    const serializableItem = JSON.parse(JSON.stringify(item)); // تحويل الكائن إلى JSON ثم إعادته إلى كائن
+    const handleAddToCart = (item) => {
+        // التحقق من أن item لا يحتوي على دوال أو مراجع غير قابلة للتسلسل
+        const serializableItem = JSON.parse(JSON.stringify(item)); // تحويل الكائن إلى JSON ثم إعادته إلى كائن
 
-    dispatch(addToCart(serializableItem));
-};
+        dispatch(addToCart(serializableItem));
+    };
 
 
     const mapProducts = () => {
         return filterProducts().map((item) => (
             <MDBCol xs="12" md="6" lg="3" key={item.id}>
-                <MDBCard style={{ height: '100%' }}>
+                <MDBCard>
                     <div className='d-flex justify-content-center'>
                         <MDBCardImage
                             className={Styles.shadowBorder}
@@ -132,16 +133,15 @@ const handleAddToCart = (item) => {
                     <MDBBtnGroup className='d-flex justify-content-center align-items-center p-3'>
                         <MDBBtn className='me-1' color='success' outline
                             onClick={() => {
-                                // btnStyleSet(item)
                                 handleAddToCart(item); // استخدام الطريقة الجديدة
                             }}
                         >
-                            Add To Cart
+                            Add To Cart <MDBIcon fas icon="cart-plus" />
                         </MDBBtn>
                         <MDBBtn className='me-1' color='' outline
                             onClick={() => dispatch(removeFromCart(item))}
                         >
-                            Buy Now
+                            <strong>Buy Now</strong>
                         </MDBBtn>
                     </MDBBtnGroup>
                 </MDBCard>

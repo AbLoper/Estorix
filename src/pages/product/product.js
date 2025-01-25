@@ -68,7 +68,7 @@ export default function Product() {
             </div>
             <MDBBtnGroup shadow="0" aria-label="Basic example" size="sm" className='d-flex gap-1'>
               <MDBBtn color="secondary" outline
-                onClick={() => dispatch(removeFromCart(item))}>Add To Cart</MDBBtn>
+                onClick={() => dispatch(removeFromCart(item))}>Add To Cart <MDBIcon fas icon="cart-plus" /></MDBBtn>
               <MDBBtn color="info" outline>Buy Now</MDBBtn>
               <MDBBtn color="primary" outline onClick={backward}>
                 <MDBIcon fas icon="angle-left" />
