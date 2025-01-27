@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { gsap } from 'gsap';
 import { ScrollToPlugin } from 'gsap/all';
+import { MDBIcon } from 'mdb-react-ui-kit';
 gsap.registerPlugin(ScrollToPlugin);
 
 const ScrollToTopButton = () => {
@@ -23,7 +24,7 @@ const ScrollToTopButton = () => {
     const scrollToTop = () => {
         gsap.to(window, {
             duration: 1,
-            scrollTo: { y: 0, autoKill: true },
+            scrollTo: { y: 0},
             ease: 'power2.inOut',
         });
     };
@@ -37,14 +38,14 @@ const ScrollToTopButton = () => {
                     position: 'fixed',
                     bottom: '2rem',
                     right: '2rem',
-                    padding: '1rem',
+                    padding: '.5rem 1rem',
                     color: '#fff',
                     border: '.5px solid #fff',
-                    borderRadius: '50px',
+                    borderRadius: '50%',
                     cursor: 'pointer',
                 }}
             >
-                top
+                <MDBIcon fas icon="angle-double-up" />
             </button>
         )
     );

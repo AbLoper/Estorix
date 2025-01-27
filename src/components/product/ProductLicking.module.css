@@ -1,0 +1,21 @@
+.star {
+    font-size: 1.5rem; /* تكبير حجم النجوم */
+    color: #d3d3d3; /* لون النجوم الفارغة */
+    cursor: pointer;
+    transition: color 0.2s ease-in-out; /* تأثير التغيير عند التمرير */
+  }
+  
+  .star.filled {
+    color: #ffcc00; /* لون النجوم الممتلئة */
+  }
+  
+  .star:hover {
+    color: #ffcc00; /* تغيير اللون عند التمرير فوق النجمة */
+  }
+  
+  .rating {
+    display: flex;
+    justify-content: center;
+    gap: .1rem;
+  }
+  

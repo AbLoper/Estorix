@@ -19,12 +19,9 @@ import { useNavigate } from 'react-router';
 import { addToCart, removeFromCart } from '../../reduxToolkit/slices/cartSlice';
 import { useDispatch } from 'react-redux';
 import ProductRating from '../../components/product/ProductRating';
-import ProductLiking from '../../components/product/ProductLiking';
+import ProductLiking from '../../components/product/ProductLicking';
 
 const Products = () => {
-    // const getStateItems = useSelector(state => state.cart.items)
-    // const [stateItems, setStateItems] = useState([])
-
     const [products, setProducts] = useState([]);
     const [loading, setLoading] = useState(true);
     const [error, setError] = useState(null);
@@ -36,15 +33,11 @@ const Products = () => {
         axios
             .get('https://fakestoreapi.com/products')
             .then((response) => {
-                const count = 1;
-                const updateResponse = response.data.map((item) => {
-                    return {
-                        ...item,
-                        count: count,
-                        total: count * +item.price,
-                        added: false
-                    }
-                });
+                const updateResponse = response.data.map((item) => ({
+                    ...item,
+                    rating: 0, // إضافة تقييم افتراضي
+                    liked: false, // إضافة حالة للإعجاب
+                }));
                 setProducts(updateResponse);
                 setLoading(false);
             })
@@ -52,15 +45,7 @@ const Products = () => {
                 setError('Error Fetching Data');
                 setLoading(false);
             });
-
     }, []);
-
-    // const btnStyleSet = (value) => {
-    //     setStateItems(prevState => {
-    //         const updatedItems = [...prevState, value];
-    //         return updatedItems;
-    //     });
-    // };
 
     const filterProducts = () => {
         let filteredProducts = products;
@@ -87,12 +72,27 @@ const Products = () => {
 
     // عند إضافة المنتج إلى السلة:
     const handleAddToCart = (item) => {
-        // التحقق من أن item لا يحتوي على دوال أو مراجع غير قابلة للتسلسل
-        const serializableItem = JSON.parse(JSON.stringify(item)); // تحويل الكائن إلى JSON ثم إعادته إلى كائن
-
+        const serializableItem = JSON.parse(JSON.stringify(item));
         dispatch(addToCart(serializableItem));
     };
 
+    // دالة لتحديث التقييم
+    const handleRatingChange = (itemId, newRating) => {
+        setProducts((prevProducts) =>
+            prevProducts.map((item) =>
+                item.id === itemId ? { ...item, rating: newRating } : item
+            )
+        );
+    };
+
+    // دالة لتبديل حالة الإعجاب
+    const toggleLike = (itemId) => {
+        setProducts((prevProducts) =>
+            prevProducts.map((item) =>
+                item.id === itemId ? { ...item, liked: !item.liked } : item
+            )
+        );
+    };
 
     const mapProducts = () => {
         return filterProducts().map((item) => (
@@ -113,7 +113,7 @@ const Products = () => {
                             onClick={() => productDetails(item)}
                         />
                     </div>
-                    <MDBCardBody className='d-flex flex-column'>
+                    <MDBCardBody className='d-flex flex-column' style={{ height: "12rem" }}>
                         <MDBCardTitle>
                             {item.title.length > 35 ? `${item.title.substring(0, 35)}...` : item.title}
                         </MDBCardTitle>
@@ -122,19 +122,17 @@ const Products = () => {
                         </MDBCardText>
                         <p>{item.price}$</p>
                     </MDBCardBody>
-                    <div className="rating d-flex flex-row justify-content-between align-items-end mx-3 px-2">
+                    <div className="rating d-flex flex-row justify-content-between align-items-center mx-3 px-1">
                         <div className="stars">
-                            <ProductRating rate='4' />
+                            <ProductRating rate={item.rating} onRatingChange={(newRating) => handleRatingChange(item.id, newRating)} />
                         </div>
                         <div className="liking">
-                            <ProductLiking />
+                            <ProductLiking liked={item.liked} onLikeChange={() => toggleLike(item.id)} />
                         </div>
                     </div>
                     <MDBBtnGroup className='d-flex justify-content-center align-items-center p-3'>
                         <MDBBtn className='me-1' color='success' outline
-                            onClick={() => {
-                                handleAddToCart(item); // استخدام الطريقة الجديدة
-                            }}
+                            onClick={() => handleAddToCart(item)}
                         >
                             Add To Cart <MDBIcon fas icon="cart-plus" />
                         </MDBBtn>

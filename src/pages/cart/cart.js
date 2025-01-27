@@ -15,71 +15,86 @@ export default function Cart() {
     const totalPrice = cartItems.reduce((total, item) => total + item.price * item.quantity, 0);
 
     return (
-        <MDBContainer fluid id={Styles.container}>
-            <MDBRow id={Styles.row1} className='text-dark d-flex'>
+        <MDBContainer id={Styles.container}>
+            <MDBRow className="d-flex gap-2">
                 {
                     cartItems.map((item, index) => {
                         const itemTotal = item.price * item.quantity;
                         return (
-                            <MDBCol xs={12} lg={8} id={Styles.col1} key={item.id} className="d-flex justify-content-center align-items-center p-2">
-                                <MDBCard id={Styles.card} className='d-flex w-100'>
-                                    {item.image ? (
-                                        <MDBCardImage
-                                            id={Styles.cardImage}
-                                            src={item.image}
-                                            alt="..."
-                                            position="top"
-                                            style={{
-                                                // width: '85%',
-                                                objectFit: 'contain',
-                                                height: '15vh',
-                                                marginTop: '1rem',
-                                                // marginLeft:"auto",
-                                                // marginRight:"0",
-                                                // display: 'block'
-                                            }}
-                                        />
-                                    ) : (
-                                        <div>Image not available</div>
-                                    )}
-                                    <MDBCardBody id={Styles.cardBody} className='d-flex flex-column'>
-                                        <MDBCardText>{item.category}</MDBCardText>
-                                        <MDBCardTitle>{item.title}</MDBCardTitle>
-                                        <p>{item.price}$</p>
-                                        <p>Quantity: {item.quantity}</p>
-                                        <p>Total for this item: ${itemTotal.toFixed(2)}</p>
+                            <MDBCol xs={12} lg={8}>
 
-                                        <MDBBtnGroup shadow="0" aria-label="Basic example" size="sm" className="gap-1">
-                                            <MDBBtn color="danger" outline onClick={() => dispatch(decrementItem(item))}><MDBIcon fas icon="minus" /></MDBBtn>
-                                            <MDBBtn color="success" outline onClick={() => dispatch(incrementItem(item))}><MDBIcon fas icon="plus" /></MDBBtn>
-                                        </MDBBtnGroup>
+                                <MDBCard id={Styles.card} className="d-flex flex-column">
+                                    <div className="d-flex">
+                                        {item.image ? (
+                                            <MDBCardImage
+                                                src={item.image}
+                                                alt="..."
+                                                position="top"
+                                                style={{
+                                                    objectFit: 'contain',
+                                                    maxWidth: "25vh",
+                                                    maxHeight: '25vh',
+                                                    padding: "1rem"
+                                                }}
+                                            />
+                                        ) : (
+                                            <div>Image not available</div>
+                                        )}
+                                        <MDBCardBody>
+                                            <MDBCardText>{item.category}</MDBCardText>
+                                            <MDBCardTitle>{item.title}</MDBCardTitle>
+                                            <p><strong>{item.price}$</strong></p>
+                                        </MDBCardBody>
+                                    </div>
 
-                                        <MDBBtn color="secondary" className="my-1" size="sm" outline onClick={() => dispatch(removeFromCart(item))}>
-                                            Remove <MDBIcon fas icon="trash-alt" />
-                                        </MDBBtn>
-                                    </MDBCardBody>
+                                    <div className="d-flex flex-column flex-md-row justify-content-center justify-content-md-evenly gap-2 mb-3">
+                                        <div className="d-flex justify-content-center align-items-center gap-2">
+                                            <p style={{
+                                                marginTop: "0",
+                                                marginBottom: "0"
+                                            }}>Quantity: <strong>{item.quantity}</strong></p>
+
+                                            <MDBBtnGroup shadow="0" aria-label="Basic example" size="sm" className="gap-1">
+                                                <MDBBtn color="danger" outline onClick={() => dispatch(decrementItem(item))}><MDBIcon fas icon="minus" /></MDBBtn>
+                                                <MDBBtn color="success" outline onClick={() => dispatch(incrementItem(item))}><MDBIcon fas icon="plus" /></MDBBtn>
+                                            </MDBBtnGroup>
+                                        </div>
+
+                                        <div className="d-flex justify-content-center align-items-center gap-2">
+                                            <p style={{
+                                                marginTop: "0",
+                                                marginBottom: "0"
+                                            }}>Total for this item: <strong>${itemTotal.toFixed(2)}</strong></p>
+
+                                            <MDBBtn color="secondary" size="sm" outline onClick={() => dispatch(removeFromCart(item))}>
+                                                Remove <MDBIcon fas icon="trash-alt" />
+                                            </MDBBtn>
+                                        </div>
+                                    </div>
                                 </MDBCard>
                             </MDBCol>
                         );
                     })
                 }
-            </MDBRow>
 
-            {/* عرض عدد المنتجات المختارة ومجموع السعر في الأعلى */}
-
-            <MDBRow>
-                <MDBCol xs={12} lg={4} id={Styles.col2} className="position-fixed my-2">
-                    <MDBCard id={Styles.card} className="d-flex align-items-center text-dark h-100">
-                            <img src={assets.logos.CartLogo} alt="cartLogo" className="w-50 my-5" />
-                        <div>
-                            <h4>Total Items: {totalQuantity}</h4>
-                            <h4>Total Price : {totalPrice.toFixed(2)}$</h4>
+                <MDBCol>
+                    <MDBCard id={Styles.card} className="flex-column p-5">
+                        <div className="d-flex justify-content-evenly align-items-center">
+                            <img src={assets.logos.CartLogo} loading="lazy" alt="cartLogo" style={{
+                                objectFit: 'contain',
+                                maxWidth: "25vh",
+                                maxHeight: '25vh',
+                                padding: "1rem"
+                            }} />
+                            <div>
+                                <h4>Total Items: <strong>{totalQuantity}</strong></h4>
+                                <h4>Total Price : <strong>{totalPrice.toFixed(2)}$</strong></h4>
+                            </div>
                         </div>
                         <div className="d-flex justify-content-center gap-1 mt-2">
-                            <MDBBtn size="sm" color="danger">Cancel Cart <MDBIcon fas icon="minus-square" /></MDBBtn>
-                            <MDBBtn size="sm" outline color="success">Checkout <MDBIcon far icon="credit-card" /></MDBBtn>
+                            <MDBBtn size="sm" color="danger" className="flex-grow-1">Cancel Cart <MDBIcon fas icon="minus-square" /></MDBBtn>
+                            <MDBBtn size="sm" outline color="success" className="flex-grow-1">Checkout <MDBIcon far icon="credit-card" /></MDBBtn>
                         </div>
-                        <h2>Page Not Responsive</h2>
                     </MDBCard>
                 </MDBCol>
             </MDBRow>
