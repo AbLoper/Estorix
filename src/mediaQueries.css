@@ -1,41 +1,30 @@
-/* Extra small devices (xs) (phones, 575px and down) */
-@media (max-width: 576px) {
-    body{
-        background-color: blue;
-    }
-}
-
-/* Small devices (sm) (portrait tablets and large phones, 576px and up) */
-@media (min-width: 576px) {
-    body{
-        background-color: green;
-    }
-}
-
-/* Medium devices (md) (landscape tablets, 768px and up) */
-@media (min-width: 768px) {
-    body{
-        background-color: red;
-    }
-}
-
-/* Large devices (lg) (laptops/desktops, 992px and up) */
-@media (min-width: 992px) {
-    body{
-        background-color: yellow;
-    }
-}
-
-/* Extra large devices (xl) (Extra large laptops and desktops, 1200px and up) */
-@media (min-width: 1200px) {
-    body{
-        background-color: orange;
-    }
-}
-
-/* Extra extra large devices (xxl) (Extra extra large screens, 1400px and up) */
-@media (min-width: 1400px) {
-    body{
-        background-color: pink;
-    }
-}
+/* Extra small devices (xs) (phones, less than 576px) */
+@media (max-width: 575px) {
+    /* أي تخصيصات خاصة بالأجهزة الصغيرة هنا */
+  }
+  
+  /* Small devices (sm) (portrait tablets and large phones, 576px to 767px) */
+  @media (min-width: 576px) and (max-width: 767px) {
+    /* تخصيصات الأجهزة الصغيرة */
+  }
+  
+  /* Medium devices (md) (landscape tablets, 768px to 991px) */
+  @media (min-width: 768px) and (max-width: 991px) {
+    /* تخصيصات الأجهزة المتوسطة */
+  }
+  
+  /* Large devices (lg) (laptops/desktops, 992px to 1199px) */
+  @media (min-width: 992px) and (max-width: 1199px) {
+    /* تخصيصات الأجهزة الكبيرة */
+  }
+  
+  /* Extra large devices (xl) (Extra large laptops and desktops, 1200px and up) */
+  @media (min-width: 1200px) {
+    /* تخصيصات الأجهزة الكبيرة جدًا */
+  }
+  
+  /* Extra extra large devices (xxl) (Very large screens, 1400px and up) */
+  @media (min-width: 1400px) {
+    /* تخصيصات الشاشات الكبيرة جدًا */
+  }
+  

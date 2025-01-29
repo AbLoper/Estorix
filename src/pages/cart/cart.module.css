@@ -2,13 +2,23 @@
   margin-top: 12vh;
 }
 
-#card {
+.card {
   border: 2px solid #c1c1c2;
   box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.5);
 }
 
+#col2 {
+  display: flex;
+  flex-direction: column;
+  /* gap: 5vh; */
+  /* margin-bottom: 1vh; */
+}
+
+#col3{
+}
 /* Extra small devices (xs) (phones, 575px and down) */
 @media (max-width: 576px) {
+
 }
 
 /* Small devices (sm) (portrait tablets and large phones, 576px and up) */
@@ -17,12 +27,16 @@
 
 /* Medium devices (md) (landscape tablets, 768px and up) */
 @media (min-width: 768px) {
-
 }
 
 /* Large devices (lg) (laptops/desktops, 992px and up) */
 @media (min-width: 992px) {
-
+  #col2 {
+    top: 0;
+    right: 0;
+    position:fixed;
+    margin-top: 12vh;
+  }
 }
 
 /* Extra large devices (xl) (Extra large laptops and desktops, 1200px and up) */

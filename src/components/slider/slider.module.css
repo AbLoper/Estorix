@@ -1,0 +1,48 @@
+/* الحاوية التي تحتوي على الصور */
+.sliderContainer {
+  width: 100%;
+  height: 45vh;
+  overflow: hidden; /* إخفاء العناصر التي تخرج عن حدود الحاوية */
+  position: relative;
+  background-color: #f5f5f5; /* يمكنك تخصيص اللون هنا */
+}
+
+/* المجموعة التي تحتوي على الصور */
+.sliderImages {
+  display: flex;
+  width: max-content; /* العرض يعتمد على عدد الصور */
+  height: 100%;
+  animation: marquee 15s ease-in-out infinite; /* تحريك الصور بشكل مستمر */
+}
+
+/* الصورة داخل الحاوية */
+.sliderImages img {
+  width: 100%; /* عرض الصورة يتناسب مع الحاوية */
+  object-fit: cover; /* لضمان تغطية الصورة المساحة المتاحة بشكل جيد */
+}
+
+/* تعريف الحركة المستمرة */
+@keyframes marquee {
+  0% {
+    transform: translateX(0); /* بداية الحركة من اليمين */
+  }
+  25% {
+    transform: translateX(-33.33%);
+     /* التمرير 1/3 من المسافة */
+  }
+  50% {
+    transform: translateX(-66.66%);
+     /* التمرير 2/3 من المسافة */
+  }
+  75% {
+    transform: translateX(-100%); /* التمرير بالكامل */
+  }
+  100% {
+    transform: translateX(0); /* العودة إلى اليسار (إعادة الحركة) */
+  }
+}
+
+/* إيقاف الحركة عند مرور الماوس */
+.sliderContainer:hover .sliderImages {
+  animation-play-state: paused; /* إيقاف الحركة عند المرور */
+}

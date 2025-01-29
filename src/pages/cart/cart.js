@@ -1,30 +1,45 @@
-import { MDBBtn, MDBBtnGroup, MDBCard, MDBCardBody, MDBCardImage, MDBCardText, MDBCardTitle, MDBCol, MDBContainer, MDBIcon, MDBRow } from "mdb-react-ui-kit";
+import { MDBBtn, MDBBtnGroup, MDBCard, MDBCardBody, MDBCardImage, MDBCardTitle, MDBCol, MDBContainer, MDBIcon, MDBRow } from "mdb-react-ui-kit";
 import Styles from './cart.module.css';
-import assets from '../../assets'
+import assets from '../../assets';
 import { useDispatch, useSelector } from "react-redux";
 import { removeFromCart, incrementItem, decrementItem } from "../../reduxToolkit/slices/cartSlice";
+import { showAsyncToast } from '../../utils/tosater_library/toast_ItemRemoved';  // استيراد الدالة
+import { Toaster } from "react-hot-toast";
+import ItemsSlider from "../../components/slider/Slider";
 
 export default function Cart() {
     const dispatch = useDispatch();
     const cartItems = useSelector(state => state.cart.items);
 
+    // دالة لمعالجة حذف العنصر
+    const handleRemoveItem = async (item) => {
+        // عرض إشعار عند إجراء العملية غير المتزامنة
+        await showAsyncToast();
+        dispatch(removeFromCart(item));
+    };
+
     // حساب العدد الإجمالي للمنتجات المختارة
     const totalQuantity = cartItems.reduce((total, item) => total + item.quantity, 0);
 
-    // حساب مجموع السعر بناءً على الكمية
-    const totalPrice = cartItems.reduce((total, item) => total + item.price * item.quantity, 0);
+    let shippingPrice = 0
+    let totalPrice = cartItems.reduce((total, item) => total + item.price * item.quantity, 0)
+
+    if (totalQuantity > 0) {
+        shippingPrice = 30
+        totalPrice += shippingPrice
+    }
+
 
     return (
-        <MDBContainer id={Styles.container}>
-            <MDBRow className="d-flex gap-2">
+        <MDBContainer fluid id={Styles.container}>
+            <MDBRow>
                 {
                     cartItems.map((item, index) => {
                         const itemTotal = item.price * item.quantity;
                         return (
-                            <MDBCol xs={12} lg={8}>
-
-                                <MDBCard id={Styles.card} className="d-flex flex-column">
-                                    <div className="d-flex">
+                            <MDBCol xs={12} lg={7} key={index}>
+                                <MDBCard className={`${Styles.card} d-flex flex-column m-1`}>
+                                    <div className="d-flex justify-content-center align-items-center">
                                         {item.image ? (
                                             <MDBCardImage
                                                 src={item.image}
@@ -32,22 +47,21 @@ export default function Cart() {
                                                 position="top"
                                                 style={{
                                                     objectFit: 'contain',
-                                                    maxWidth: "25vh",
-                                                    maxHeight: '25vh',
-                                                    padding: "1rem"
+                                                    maxWidth: "15vh",
+                                                    maxHeight: '15vh',
+                                                    margin: "1rem"
                                                 }}
                                             />
                                         ) : (
                                             <div>Image not available</div>
                                         )}
                                         <MDBCardBody>
-                                            <MDBCardText>{item.category}</MDBCardText>
                                             <MDBCardTitle>{item.title}</MDBCardTitle>
                                             <p><strong>{item.price}$</strong></p>
                                         </MDBCardBody>
                                     </div>
 
-                                    <div className="d-flex flex-column flex-md-row justify-content-center justify-content-md-evenly gap-2 mb-3">
+                                    <div className="d-flex flex-column flex-lg-row justify-content-center justify-content-lg-evenly mb-3">
                                         <div className="d-flex justify-content-center align-items-center gap-2">
                                             <p style={{
                                                 marginTop: "0",
@@ -66,7 +80,12 @@ export default function Cart() {
                                                 marginBottom: "0"
                                             }}>Total for this item: <strong>${itemTotal.toFixed(2)}</strong></p>
 
-                                            <MDBBtn color="secondary" size="sm" outline onClick={() => dispatch(removeFromCart(item))}>
+                                            <MDBBtn
+                                                color="secondary"
+                                                size="sm"
+                                                outline
+                                                onClick={() => handleRemoveItem(item)}  // استخدم دالة جديدة لإزالة العنصر
+                                            >
                                                 Remove <MDBIcon fas icon="trash-alt" />
                                             </MDBBtn>
                                         </div>
@@ -77,8 +96,9 @@ export default function Cart() {
                     })
                 }
 
-                <MDBCol>
-                    <MDBCard id={Styles.card} className="flex-column p-5">
+                <MDBCol xs={12} lg={5} id={Styles.col2}>
+                    <MDBCard className={`${Styles.card} flex-column p-3 m-1`}>
+
                         <div className="d-flex justify-content-evenly align-items-center">
                             <img src={assets.logos.CartLogo} loading="lazy" alt="cartLogo" style={{
                                 objectFit: 'contain',
@@ -87,8 +107,9 @@ export default function Cart() {
                                 padding: "1rem"
                             }} />
                             <div>
-                                <h4>Total Items: <strong>{totalQuantity}</strong></h4>
-                                <h4>Total Price : <strong>{totalPrice.toFixed(2)}$</strong></h4>
+                                <h4>Count Items: <strong>{totalQuantity}</strong></h4>
+                                <h4>Shipping Fees : <strong>{shippingPrice}$</strong></h4>
+                                <h4>Total Items Price : <strong>{totalPrice.toFixed(2)}$</strong></h4>
                             </div>
                         </div>
                         <div className="d-flex justify-content-center gap-1 mt-2">
@@ -96,8 +117,14 @@ export default function Cart() {
                             <MDBBtn size="sm" outline color="success" className="flex-grow-1">Checkout <MDBIcon far icon="credit-card" /></MDBBtn>
                         </div>
                     </MDBCard>
+                    <MDBCard id={Styles.col3} className={`${Styles.card} p-1 m-1`}>
+                        <ItemsSlider />
+                    </MDBCard>
                 </MDBCol>
             </MDBRow>
+
+            {/* ضع <Toaster /> في النهاية فقط مرة واحدة في المكون الأساسي */}
+            <Toaster />
         </MDBContainer>
     );
 }
