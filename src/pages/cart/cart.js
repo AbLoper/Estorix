@@ -1,14 +1,16 @@
-import { MDBBtn, MDBBtnGroup, MDBCard, MDBCardBody, MDBCardImage, MDBCardTitle, MDBCol, MDBContainer, MDBIcon, MDBRow } from "mdb-react-ui-kit";
+import { MDBBtn, MDBBtnGroup, MDBCard, MDBCardBody, MDBCardImage, MDBCol, MDBContainer, MDBIcon, MDBRow } from "mdb-react-ui-kit";
 import Styles from './cart.module.css';
 import assets from '../../assets';
 import { useDispatch, useSelector } from "react-redux";
-import { removeFromCart, incrementItem, decrementItem } from "../../reduxToolkit/slices/cartSlice";
+import { removeFromCart, incrementItem, decrementItem, cancelCart } from "../../reduxToolkit/slices/cartSlice";
 import { showAsyncToast } from '../../utils/tosater_library/toast_ItemRemoved';  // استيراد الدالة
 import { Toaster } from "react-hot-toast";
 import ItemsSlider from "../../components/slider/Slider";
+import { useNavigate } from "react-router";
 
 export default function Cart() {
     const dispatch = useDispatch();
+    const navigate = useNavigate()
     const cartItems = useSelector(state => state.cart.items);
 
     // دالة لمعالجة حذف العنصر
@@ -27,6 +29,19 @@ export default function Cart() {
     if (totalQuantity > 0) {
         shippingPrice = 30
         totalPrice += shippingPrice
+    }
+
+    const handleCancelCart = () => {
+        dispatch(cancelCart())
+        setTimeout(() => {
+            navigate('/')
+        }, 1500)
+    }
+
+    const handleCheckout = () => {
+        setTimeout(() => {
+            navigate('/checkout')
+        }, 1500);
     }
 
 
@@ -56,7 +71,7 @@ export default function Cart() {
                                             <div>Image not available</div>
                                         )}
                                         <MDBCardBody>
-                                            <MDBCardTitle>{item.title}</MDBCardTitle>
+                                            {item.title.length > 35 ? `${item.title.substring(0, 35)}...` : item.title}
                                             <p><strong>{item.price}$</strong></p>
                                         </MDBCardBody>
                                     </div>
@@ -65,7 +80,7 @@ export default function Cart() {
                                         <div className="d-flex justify-content-center align-items-center gap-2">
                                             <p style={{
                                                 marginTop: "0",
-                                                marginBottom: "0"
+                                                marginBottom: "0",
                                             }}>Quantity: <strong>{item.quantity}</strong></p>
 
                                             <MDBBtnGroup shadow="0" aria-label="Basic example" size="sm" className="gap-1">
@@ -74,7 +89,7 @@ export default function Cart() {
                                             </MDBBtnGroup>
                                         </div>
 
-                                        <div className="d-flex justify-content-center align-items-center gap-2">
+                                        <div className="d-flex justify-content-center align-items-center gap-2 mt-3 mt-lg-0">
                                             <p style={{
                                                 marginTop: "0",
                                                 marginBottom: "0"
@@ -86,7 +101,7 @@ export default function Cart() {
                                                 outline
                                                 onClick={() => handleRemoveItem(item)}  // استخدم دالة جديدة لإزالة العنصر
                                             >
-                                                Remove <MDBIcon fas icon="trash-alt" />
+                                                <MDBIcon size='lg' fas icon="trash-alt" />
                                             </MDBBtn>
                                         </div>
                                     </div>
@@ -113,8 +128,8 @@ export default function Cart() {
                             </div>
                         </div>
                         <div className="d-flex justify-content-center gap-1 mt-2">
-                            <MDBBtn size="sm" color="danger" className="flex-grow-1">Cancel Cart <MDBIcon fas icon="minus-square" /></MDBBtn>
-                            <MDBBtn size="sm" outline color="success" className="flex-grow-1">Checkout <MDBIcon far icon="credit-card" /></MDBBtn>
+                            <MDBBtn size="sm" color="danger" className="flex-grow-1" onClick={handleCancelCart}>Cancel Cart <MDBIcon fas icon="minus-square" /></MDBBtn>
+                            <MDBBtn size="sm" outline color="success" className="flex-grow-1" onClick={handleCheckout}>Checkout <MDBIcon far icon="credit-card" /></MDBBtn>
                         </div>
                     </MDBCard>
                     <MDBCard id={Styles.col3} className={`${Styles.card} p-1 m-1`}>

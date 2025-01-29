@@ -38,8 +38,11 @@ export const cartSlice = createSlice({
         item.quantity -= 1;
       }
     },
+    cancelCart:(state)=>{
+      state.items=[]
+    }
   },
 });
 
-export const { addToCart, removeFromCart, incrementItem, decrementItem } = cartSlice.actions;
+export const { addToCart, removeFromCart, incrementItem, decrementItem,cancelCart } = cartSlice.actions;
 export default cartSlice.reducer;
