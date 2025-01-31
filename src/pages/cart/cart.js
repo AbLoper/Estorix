@@ -44,7 +44,6 @@ export default function Cart() {
         }, 1500);
     }
 
-
     return (
         <MDBContainer fluid id={Styles.container}>
             <MDBRow>

@@ -26,16 +26,8 @@
   0% {
     transform: translateX(0); /* بداية الحركة من اليمين */
   }
-  25% {
-    transform: translateX(-33.33%);
-     /* التمرير 1/3 من المسافة */
-  }
   50% {
-    transform: translateX(-66.66%);
-     /* التمرير 2/3 من المسافة */
-  }
-  75% {
-    transform: translateX(-100%); /* التمرير بالكامل */
+    transform: translateX(-100%); /* العودة إلى اليسار (إعادة الحركة) */
   }
   100% {
     transform: translateX(0); /* العودة إلى اليسار (إعادة الحركة) */
